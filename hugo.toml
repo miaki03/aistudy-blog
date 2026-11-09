@@ -1,0 +1,53 @@
+baseURL = "https://learning-path.pages.dev/"
+locale = "zh-cn"
+theme = "hugo-theme-stack"
+author = "Miaki"
+title = "ARG · CTF · Puzzle Hunt"
+copyright = "Miaki"
+enableEmoji = true
+
+[Params]
+mainSections = ["post"]
+
+[permalinks]
+    post = "/p/:slug/"
+    page = "/:slug/"
+
+[Params.dateFormat]
+published = "Jan 02,2006"
+
+[Params.sidebar]
+emoji = "🧩"
+subtitle = "三线并进 · 单人自学 16 周"
+
+[Params.footer]
+since = 2026
+author = "Miaki"
+
+[Params.article]
+license.enabled = true
+license.default = "LICENSED UNDER CC BY-NC-SA 4.0"
+
+[Params.homepage]
+type = "archives"
+
+[Params.colorScheme]
+toggle = true
+default = "auto"
+
+[menu]
+[[menu.main]]
+    name = '主页'
+    pageRef = '/'
+    weight = 10
+[menu.main.params]
+    icon = "home"
+[[menu.main]]
+    name = '关于'
+    pageRef = '/about'
+    weight = 20
+[menu.main.params]
+    icon = "user"
+
+[markup.goldmark.renderer]
+  unsafe = true
