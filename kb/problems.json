@@ -1,0 +1,126 @@
+{
+  "problems": [
+    {
+      "id": "B64-01",
+      "page": "base64-family",
+      "skills": ["base64"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "flag{b64_is_grouping_not_characters}",
+      "verify": "echo ZmxhZ3tiNjRfaXNfZ3JvdXBpbmdfbm90X2NoYXJhY3RlcnN9 | base64 -d"
+    },
+    {
+      "id": "B64-02",
+      "page": "base64-family",
+      "skills": ["base64", "padding"],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "flag{padding}",
+      "verify": "python3 -c \"import base64;print(base64.b64decode('ZmxhZ3twYWRkaW5nfQ==').decode())\""
+    },
+    {
+      "id": "B64-03",
+      "page": "base64-family",
+      "skills": ["base64url", "json"],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "{\"alg\":\"HS256\",\"typ\":\"JWT\"}",
+      "verify": "python3 -c \"import base64;print(base64.urlsafe_b64decode('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9').decode())\""
+    },
+    {
+      "id": "B64-04",
+      "page": "base64-family",
+      "skills": ["base32"],
+      "difficulty": 2,
+      "minutes": 3,
+      "answer": "flag",
+      "verify": "printf 'MZWGCZY=' | base32 -d"
+    },
+    {
+      "id": "F-01",
+      "page": "file-magic",
+      "skills": ["magic-bytes"],
+      "difficulty": 1,
+      "minutes": 2,
+      "answer": "PNG",
+      "manual": true,
+      "evidence": "89 50 4E 47 = .PNG（ASCII 可读）；完整 8 字节 89 50 4E 47 0D 0A 1A 0A 是 PNG 规范定义的签名"
+    },
+    {
+      "id": "F-02",
+      "page": "file-magic",
+      "skills": ["magic-bytes"],
+      "difficulty": 1,
+      "minutes": 2,
+      "answer": "ZIP",
+      "manual": true,
+      "evidence": "50 4B 03 04 = PK\\x03\\x04，ZIP 本地文件头；jar/docx/apk/epub 同为 zip 容器"
+    },
+    {
+      "id": "F-03",
+      "page": "file-magic",
+      "skills": ["append-data", "file-command"],
+      "difficulty": 3,
+      "minutes": 10,
+      "answer": "flag{appended_after_eof}",
+      "manual": true,
+      "evidence": "实测：1x1 PNG 67 字节 + zip 后共 205 字节，file 仍报 PNG；从偏移 67 切出的是合法 zip，内含该字符串"
+    },
+    {
+      "id": "P1-01",
+      "page": "p1-encoding-recon",
+      "skills": ["base64"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "flag{b64_is_grouping_not_characters}",
+      "verify": "echo ZmxhZ3tiNjRfaXNfZ3JvdXBpbmdfbm90X2NoYXJhY3RlcnN9 | base64 -d"
+    },
+    {
+      "id": "P1-02",
+      "page": "p1-encoding-recon",
+      "skills": ["base32"],
+      "difficulty": 2,
+      "minutes": 3,
+      "answer": "flag{padding}",
+      "verify": "printf 'MZWGCZ33OBQWIZDJNZTX2===' | base32 -d"
+    },
+    {
+      "id": "P1-03",
+      "page": "p1-encoding-recon",
+      "skills": ["base16"],
+      "difficulty": 1,
+      "minutes": 2,
+      "answer": "flag{hex}",
+      "verify": "printf '666c61677b6865787d' | xxd -r -p"
+    },
+    {
+      "id": "P1-04",
+      "page": "p1-encoding-recon",
+      "skills": ["base64url"],
+      "difficulty": 2,
+      "minutes": 3,
+      "answer": "{\"alg\":\"HS256\",\"typ\":\"JWT\"}",
+      "verify": "python3 -c \"import base64;print(base64.urlsafe_b64decode('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9').decode())\""
+    },
+    {
+      "id": "P1-05",
+      "page": "p1-encoding-recon",
+      "skills": ["file-command", "magic-bytes"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "Zip archive",
+      "manual": true,
+      "evidence": "zip 改名成 .png 后 file 仍输出 Zip archive data（实测 1）"
+    },
+    {
+      "id": "P1-06",
+      "page": "p1-encoding-recon",
+      "skills": ["append-data"],
+      "difficulty": 3,
+      "minutes": 10,
+      "answer": "flag{appended_after_eof}",
+      "manual": true,
+      "evidence": "同 F-03：PNG 尾部追加 zip，需自己搜 PK 偏移再切出"
+    }
+  ]
+}

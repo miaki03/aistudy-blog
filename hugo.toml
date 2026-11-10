@@ -12,6 +12,8 @@ mainSections = ["post"]
 [permalinks]
     post = "/p/:slug/"
     page = "/:slug/"
+    skill = "/s/:slug/"
+    project = "/proj/:slug/"
 
 [Params.dateFormat]
 published = "Jan 02,2006"
