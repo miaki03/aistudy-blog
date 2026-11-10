@@ -5,6 +5,8 @@
 一套面向单人自学的 **ARG / CTF / Puzzle Hunt** 课程，以 Hugo 静态站发布在 `ai.xcfx.com`。
 仓库：`github.com/miaki03/aistudy-blog`（**不是** `miaki-blog`，那个是博主自己的博客，不要动）。
 
+**方法论与流水线的学科无关版本在 [`docs/PLAYBOOK.md`](docs/PLAYBOOK.md)**：换成高数、语言、乐理等主题时照它做，本文件的仓库约定则按新仓库改。
+
 ## 环境事实（省去重复勘探）
 
 | 项 | 事实 |
@@ -44,6 +46,16 @@ python3 scripts/verify-corpus.py
 5. 改完跑 `python3 scripts/check.py`，失败修到通过；
 6. 更新 `docs/06-progress.md`（做了什么、下一步）；
 7. 一项任务一次提交，提交信息用 `feat:` / `docs:` / `fix:` 前缀并写明章节 ID。
+
+## 推送策略（部署有构建配额，必须遵守）
+
+**commit 密，push 稀。**
+
+- 本地按节/章提交，**不要每完成一章就推**；
+- 只在三种时机推送：**一个 Part 收尾**、用户明确要求、修线上故障；
+- Cloudflare Pages 每次推送都触发一次构建，免费额度按次计，省下来留给真正要上线的更新；
+- 推送前先在本地跑 `hugo -D --gc --minify`，**不要拿云端构建当调试手段**；
+- 推送命令：`GIT_SSH=$HOME/.git-ssh-443.sh git push origin main`。
 
 ## 目录约定
 

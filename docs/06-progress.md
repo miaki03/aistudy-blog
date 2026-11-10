@@ -33,6 +33,13 @@
 3. 按 v4 改造 `base64-family.md` 与 `file-magic.md`
 4. P1 改用贯穿样本
 
+> **推送策略**：commit 密、push 稀。只在 Part 收尾 / 用户要求 / 修故障时推，避免耗掉 Cloudflare 构建额度。
+> 当前本地 `main` 领先 `origin/main` 3 个提交，未推。
+
+## 可复用的方法论文档
+
+[`docs/PLAYBOOK.md`](PLAYBOOK.md) —— 学科无关的教材生产手册。换主题（高数、语言、乐理）时照它做，含 12 步复刻清单与学科适配表。
+
 ## 命令速查
 
 ```bash
