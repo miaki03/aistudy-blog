@@ -37,6 +37,15 @@
       "verify": "printf 'MZWGCZY=' | base32 -d"
     },
     {
+      "id": "B64-05",
+      "page": "base64-family",
+      "skills": ["base16"],
+      "difficulty": 1,
+      "minutes": 2,
+      "answer": "flag{hex}",
+      "verify": "printf '666c61677b6865787d' | xxd -r -p"
+    },
+    {
       "id": "F-01",
       "page": "file-magic",
       "skills": ["magic-bytes"],
