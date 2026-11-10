@@ -27,27 +27,36 @@ hugo --gc --minify
 # 本地预览（包含草稿）
 hugo -D --gc --minify
 
-# 题目库校验（必须通过才能提交）
-python3 scripts/check-kb.py
+# 提交前必跑：题目库 + 概念台账 + 复用门槛
+python3 scripts/check.py
+
+# 重建 / 核对着贯穿样本集
+python3 scripts/build-corpus.py
+python3 scripts/verify-corpus.py
 ```
 
 ## 每轮工作协议（不要跳步）
 
 1. 读 `docs/06-progress.md` 的「下一步」，再读 `docs/03-backlog.md` 顶部；
 2. 只领取**一项**任务，不要顺手改别的；
-3. 改完跑 `python3 scripts/check-kb.py`，失败就修到通过；
-4. 更新 `docs/06-progress.md`（做了什么、下一步）；
-5. 一项任务一次提交，提交信息用 `feat:` / `docs:` / `fix:` 前缀并写明章节 ID。
+3. **章**为单位：3–5 个**节**，每节 15–25 分钟，四件套 = 跑通物 / 机制 / 速查 / 题；
+4. 开写前先在 `specs/<章ID>.md` 出节表（每节的跑通物想不出来就说明这节不该存在）；
+5. 改完跑 `python3 scripts/check.py`，失败修到通过；
+6. 更新 `docs/06-progress.md`（做了什么、下一步）；
+7. 一项任务一次提交，提交信息用 `feat:` / `docs:` / `fix:` 前缀并写明章节 ID。
 
 ## 目录约定
 
 ```
-content/skill/     技能页（补给站），URL /s/<slug>/
-content/project/   项目页，URL /proj/<slug>/
+content/skill/     技能章（URL /s/<slug>/）
+content/project/   项目页（URL /proj/<slug>/）
 content/post/      旧版 8 篇模块导语（legacy，暂不改）
 content/page/      关于、免责声明
-kb/                题目库 problems.json + 说明
-scripts/           校验脚本
+kb/problems.json   题目库
+kb/concepts.json   概念台账（每个概念只能有一个首次定义章）
+specs/             章的节表与实测记录（不进 Hugo）
+static/samples/    贯穿样本集 S-01…S-07，站点路径 /samples/
+scripts/           校验与生成脚本
 docs/              项目文档（不被 Hugo 构建）
 ```
 

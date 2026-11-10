@@ -1,40 +1,57 @@
 # 进度日志
 
-> 新会话从这里开始读。只写「当前状态」，历史细节在 git log 与 `04-decisions.md`。
+> 新会话从这里开始读。只写「当前状态」，历史在 git log 与 `04-decisions.md`。
 
 ## 当前状态（2026-11-10）
 
-**仓库**：`github.com/miaki03/aistudy-blog`，分支 `main`，最新提交见 `git log -1`。
-**线上**：`https://ai.xcfx.com`（Cloudflare Pages，Git 集成，push 自动构建）与 `https://miaki.pages.dev`。
-**线上内容**：只有旧版 8 篇模块导语；所有新技能页/项目页都是 `draft = true`，**线上看不到**。
+**仓库**：`github.com/miaki03/aistudy-blog`，分支 `main`。
+**线上**：`https://ai.xcfx.com`（Cloudflare Pages，push 自动构建）。
+**线上内容**：只有旧版 8 篇；新课全部 `draft = true`，线上看不到。
+
+## 大纲状态：v4 定稿
+
+- 结构：7 个 Part / 26 章 / 103 节 / 8 项目
+- 对标 C++ Primer：节为学习原子、章末术语表、表就地给、贯穿样本、两级练习、最小/完整两条路径
+- 学时：最小路径 ≈45 h，完整路径 ≈67 h
+- 详见 `07-syllabus.md`
 
 ## 已完成
 
-1. 站点从个人博客拆出为独立仓库，主题子模块锁在 `2f8b1be`。
-2. 8 篇旧文迁移，路径 `/p/<slug>/`。
-3. 题目库与校验：`kb/problems.json`（14 条）+ `scripts/check-kb.py`。
-4. 样章三页（草稿）：
-   - `S-B64` Base64 家族（按保姆级重写：前置四概念、字母表、四个手算示例含反方向、长度公式、一键试四种的脚本）
-   - `S-FILE` 文件头与 magic bytes（已按新风格校准：补前置概念、去比喻）
-   - `P1` 编码与文件侦察报告
-5. 项目文档：`AGENTS.md`、`docs/00`–`06`。
+1. 站点独立成仓库，主题子模块锁 `2f8b1be`。
+2. 旧文 8 篇迁移到 `/p/<slug>/`。
+3. **大纲 v4**（7 Part / 26 章 / 103 节 / 8 项目，对标 C++ Primer）+ **工作流 v3**（节为交付原子）。
+4. **贯穿样本集 S-01…S-07**（`static/samples/`），`build-corpus.py` 确定性重建，`verify-corpus.py` 20 项断言全过。
+5. **`kb/concepts.json`** 概念台账 10 条 + **`scripts/check.py`**（题目库 / 概念台账 / 复用门槛）。
+6. **U00 全章**：4 节 + 自检 3 + 动手 1 = 8 题，`check.py` 全绿。
+7. 样章 `U10` Base64、`U12` 文件头（`chapter` 已改 v4 ID）、`P1` 项目页。
+8. `scripts/selftest.py` + 5 道入口自测（改作 U04 出口检查，文件在 `static/samples/selftest/`）。
 
-## 下一步（按优先级）
+## 下一步
 
-1. **B-02** 写 `S-BIN`（位/字节/十六进制/ASCII/位运算）——它是 S-B64 的前置，缺了会让 B64 页的「前置」指向空
-2. **B-03** 写 `S-CLI`
-3. **B-05** 实现 `claims` 机器校验
-4. **B-06** 隐写四页
+1. **U01 终端**（5 节，节表已定，见 `03-backlog.md`）
+2. U02 → U03 → U04
+3. 按 v4 改造 `base64-family.md` 与 `file-magic.md`
+4. P1 改用贯穿样本
 
-## 等用户确认的三件事
+## 命令速查
 
-1. 域名：`baseURL` 仍是 `https://learning-path.pages.dev/`，需要改成 `https://ai.xcfx.com/` 才能让 canonical 正确。
-2. 发布：三页样章何时把 `draft` 改 `false`。
-3. 是否实现 `claims` 机制（把知识性断言也纳入脚本校验）。
+```bash
+python3 scripts/check.py            # 提交必跑
+python3 scripts/build-corpus.py     # 重建贯穿样本
+python3 scripts/verify-corpus.py    # 核对样本里藏的答案
+hugo -D --gc --minify               # 含草稿构建
+```
+
+## 等用户确认
+
+1. 域名：`baseURL` 仍是占位，需改成 `https://ai.xcfx.com/`。
+2. 发布：样章何时 `draft = false`。
+3. 最小路径（45 h）是否为第一目标。
 
 ## 环境备忘
 
-- `hugo` 只能在 WSL 里跑：`wsl.exe -d Ubuntu-24.04 -e bash <脚本>`
-- 推代码必须走 443：`GIT_SSH=$HOME/.git-ssh-443.sh`
+- `hugo` 只能在 WSL：`wsl.exe -d Ubuntu-24.04 -e bash <脚本>`
+- 推代码走 443：`GIT_SSH=$HOME/.git-ssh-443.sh`
 - 不能新建 GitHub 仓库（无 gh、无 token）
-- 没有 `zip`、`binwalk`；Python 3.12 有 `tomllib`
+- WSL 有 `gcc`、`xxd`、`file`、`python3`；没有 `zip`、`binwalk`、`node`
+- Windows 侧有 node 24 / pnpm 11 / git 2.55，没有 hugo

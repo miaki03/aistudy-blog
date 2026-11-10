@@ -1,0 +1,15 @@
+{
+  "_说明": "概念台账。每个概念只能有一个首次定义章（first）。新章节只能引用已登记的概念，或自己定义并登记——这是自动发现语义漂移的唯一手段。",
+  "concepts": {
+    "bit": { "zh": "位", "en": "bit", "first": "U00" },
+    "byte": { "zh": "字节", "en": "byte", "first": "U00" },
+    "hex": { "zh": "十六进制", "en": "hexadecimal", "first": "U00" },
+    "offset": { "zh": "偏移", "en": "offset", "first": "U00" },
+    "printable": { "zh": "可打印字符", "en": "printable character", "first": "U00" },
+    "ascii": { "zh": "ASCII", "en": "ASCII", "first": "U00" },
+    "utf8": { "zh": "UTF-8", "en": "UTF-8", "first": "U00" },
+    "text-vs-binary": { "zh": "文本与二进制", "en": "text vs binary", "first": "U00" },
+    "magic-number": { "zh": "魔数", "en": "magic number", "first": "U12" },
+    "base64": { "zh": "Base64", "en": "Base64", "first": "U10" }
+  }
+}
