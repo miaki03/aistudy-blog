@@ -4,10 +4,12 @@ draft = true
 title = 'Base64 家族：原理、手算与排错'
 description = "从位与字节讲起，逐步推导 Base64 的分组规则、字母表映射、padding 与长度公式；给出编码与解码两个方向的手算示例，以及一个能实际跑出结论的识别脚本。"
 slug = "base64-family"
-chapter = "S-B64"
+chapter = "U10"
 stage = 1
 minutes = 70
-prereq = ["S-BIN"]
+prereq = ["U00"]
+concepts = ["base64"]
+reuse = ["U12", "U23", "U41", "U42", "U51", "U61"]
 skills = ["base16", "base32", "base64", "base64url"]
 problems = ["B64-01", "B64-02", "B64-03", "B64-04", "B64-05"]
 +++

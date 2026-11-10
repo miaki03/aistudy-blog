@@ -6,8 +6,8 @@ description = "把「Base64 家族」和「文件头」两页学到的东西用�
 slug = "p1-encoding-recon"
 chapter = "P1"
 stage = 1
-minutes = 120
-prereq = ["S-B64", "S-FILE"]
+minutes = 170
+prereq = ["U00", "U10", "U12"]
 skills = ["base64", "base32", "hex", "base64url", "magic-bytes", "file-command"]
 problems = ["P1-01", "P1-02", "P1-03", "P1-04", "P1-05", "P1-06"]
 +++

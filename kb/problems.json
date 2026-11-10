@@ -130,6 +130,79 @@
       "answer": "flag{appended_after_eof}",
       "manual": true,
       "evidence": "同 F-03：PNG 尾部追加 zip，需自己搜 PK 偏移再切出"
+    },
+    {
+      "id": "U00.1-01",
+      "page": "u00-data-in-machine",
+      "skills": ["offset", "ascii"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "IHDR",
+      "verify": "python3 -c \"print(open('static/samples/S-01.png','rb').read()[12:16].decode())\""
+    },
+    {
+      "id": "U00.2-01",
+      "page": "u00-data-in-machine",
+      "skills": ["hex"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "c8",
+      "verify": "python3 -c \"print(format(200,'02x'))\""
+    },
+    {
+      "id": "U00.3-01",
+      "page": "u00-data-in-machine",
+      "skills": ["ascii"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "32",
+      "verify": "python3 -c \"print(ord('a')-ord('A'))\""
+    },
+    {
+      "id": "U00.4-01",
+      "page": "u00-data-in-machine",
+      "skills": ["utf8"],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "e4",
+      "verify": "python3 -c \"print('你'.encode()[:1].hex())\""
+    },
+    {
+      "id": "U00.5-01",
+      "page": "u00-data-in-machine",
+      "skills": ["ascii", "bytes"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "123",
+      "verify": "python3 -c \"print(bytes([0x31,0x32,0x33]).decode())\""
+    },
+    {
+      "id": "U00.5-02",
+      "page": "u00-data-in-machine",
+      "skills": ["offset", "magic-bytes"],
+      "difficulty": 2,
+      "minutes": 3,
+      "answer": "1f8b08",
+      "verify": "xxd -s 32 -l 3 -p static/samples/S-04.gz"
+    },
+    {
+      "id": "U00.5-03",
+      "page": "u00-data-in-machine",
+      "skills": ["text-vs-binary"],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "binary",
+      "verify": "python3 -c \"d=open('static/samples/S-01.png','rb').read()\ntry:\n d.decode('utf-8');print('text')\nexcept UnicodeDecodeError:\n print('binary')\""
+    },
+    {
+      "id": "U00.6-01",
+      "page": "u00-data-in-machine",
+      "skills": ["offset", "file-command", "text-vs-binary"],
+      "difficulty": 3,
+      "minutes": 25,
+      "answer": "7 行表格，每行含前 16 字节、file 输出、自己的判断",
+      "manual": true,
+      "evidence": "必须有 7 行；S-04 那行要指出 file 被前 32 字节垃圾骗了、真实数据从偏移 32 开始（1f8b08）。可用 scripts/verify-corpus.py 的输出核对。"
     }
   ]
 }

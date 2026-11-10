@@ -4,10 +4,12 @@ draft = true
 title = '文件头与 magic bytes：为什么 file 说的才算'
 description = "同一份文件，三种伪装手法，file 有三种不同反应。用可复跑的实测讲清「改扩展名 / 伪头 / 尾部追加」，并给出提取流程。"
 slug = "file-magic"
-chapter = "S-FILE"
+chapter = "U12"
 stage = 1
 minutes = 40
-prereq = ["S-CLI"]
+prereq = ["U00"]
+concepts = ["magic-number"]
+reuse = ["U20", "U21", "U22", "U32", "U33", "U41"]
 skills = ["magic-bytes", "file-command", "append-data"]
 problems = ["F-01", "F-02", "F-03"]
 +++
