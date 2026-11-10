@@ -203,6 +203,79 @@
       "answer": "7 行表格，每行含前 16 字节、file 输出、自己的判断",
       "manual": true,
       "evidence": "必须有 7 行；S-04 那行要指出 file 被前 32 字节垃圾骗了、真实数据从偏移 32 开始（1f8b08）。可用 scripts/verify-corpus.py 的输出核对。"
+    },
+    {
+      "id": "U01.1-01",
+      "page": "u01-terminal",
+      "skills": ["shell", "wc"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "30",
+      "verify": "wc -l < static/samples/u01-access.log"
+    },
+    {
+      "id": "U01.3-01",
+      "page": "u01-terminal",
+      "skills": ["shell", "sort", "uniq"],
+      "difficulty": 2,
+      "minutes": 5,
+      "answer": "10 203.0.113.7",
+      "verify": "awk '{print $2}' static/samples/u01-access.log | sort | uniq -c | sort -rn | head -1 | awk '{print $1, $2}'"
+    },
+    {
+      "id": "U01.4-01",
+      "page": "u01-terminal",
+      "skills": ["shell", "cut"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "/login",
+      "verify": "cut -d' ' -f4 static/samples/u01-access.log | head -1"
+    },
+    {
+      "id": "U01.5-01",
+      "page": "u01-terminal",
+      "skills": ["shell", "awk"],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "5",
+      "verify": "awk '$5==404' static/samples/u01-access.log | wc -l"
+    },
+    {
+      "id": "U01.6-01",
+      "page": "u01-terminal",
+      "skills": ["shell", "grep"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "6",
+      "verify": "grep -c '/login ' static/samples/u01-access.log"
+    },
+    {
+      "id": "U01.6-02",
+      "page": "u01-terminal",
+      "skills": ["shell", "uniq"],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "25",
+      "verify": "awk '{print $2}' static/samples/u01-access.log | uniq -c | wc -l"
+    },
+    {
+      "id": "U01.6-03",
+      "page": "u01-terminal",
+      "skills": ["shell", "strings"],
+      "difficulty": 2,
+      "minutes": 5,
+      "answer": "/files/%E4%BD%A0%E5%A5%BD.txt",
+      "verify": "strings -a static/samples/S-06.pcap | grep -o 'GET [^ ]*' | cut -d' ' -f2"
+    },
+    {
+      "id": "U01.7-01",
+      "page": "u01-terminal",
+      "skills": ["shell", "sort", "uniq", "strings"],
+      "difficulty": 3,
+      "minutes": 20,
+      "answer": "23 200 / 5 404 / 2 302；说明 uniq 只合并相邻；域名 ctf.example，Cookie 值 UzA2LWh0dHAtYjY0LW9r 是 Base64",
+      "manual": true,
+      "evidence": "第 1 问必须是三行且次数为 23/5/2；第 2 问须引用 25 与 5 两个数字；第 3 问须给出 ctf.example 与 UzA2LWh0dHAtYjY0LW9y 中的正确一值并指出是 Base64。"
     }
   ]
 }

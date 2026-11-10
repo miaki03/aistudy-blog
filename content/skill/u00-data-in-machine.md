@@ -1,6 +1,6 @@
 +++
 date = '2026-11-10T09:00:00+08:00'
-draft = true
+draft = false
 title = 'U00 · 数据在机器里的样子'
 description = '文件为什么是字节序列、十六进制为什么不是另一种数制、ASCII 与 UTF-8 的关系，以及判断文本/二进制的可执行依据。'
 slug = 'u00-data-in-machine'

@@ -20,17 +20,17 @@
 1. 站点独立成仓库，主题子模块锁 `2f8b1be`。
 2. 旧文 8 篇迁移到 `/p/<slug>/`。
 3. **大纲 v4**（7 Part / 26 章 / 103 节 / 8 项目，对标 C++ Primer）+ **工作流 v3**（节为交付原子）。
-4. **贯穿样本集 S-01…S-07**（`static/samples/`），`build-corpus.py` 确定性重建，`verify-corpus.py` 20 项断言全过。
-5. **`kb/concepts.json`** 概念台账 10 条 + **`scripts/check.py`**（题目库 / 概念台账 / 复用门槛）。
-6. **U00 全章**：4 节 + 自检 3 + 动手 1 = 8 题，`check.py` 全绿。
-7. 样章 `U10` Base64、`U12` 文件头（`chapter` 已改 v4 ID）、`P1` 项目页。
-8. `scripts/selftest.py` + 5 道入口自测（改作 U04 出口检查，文件在 `static/samples/selftest/`）。
+4. **`docs/PLAYBOOK.md`**：学科无关的教材生产手册，可复刻到高数等主题。
+5. **贯穿样本集 S-01…S-07** + `u01-access.log` + `selftest/`，`build-corpus.py` 确定性重建，`verify-corpus.py` 20 项断言全过。
+6. **`kb/concepts.json`** 14 条 + **`scripts/check.py`**（题目库 / 概念台账 / 复用门槛）。
+7. **已上线三篇**：U00（8 题）、U01（8 题）、U10（5 题）。
+8. `scripts/selftest.py` + 5 道入口自测（改作 U04 出口检查）。
 
 ## 下一步
 
-1. **U01 终端**（5 节，节表已定，见 `03-backlog.md`）
-2. U02 → U03 → U04
-3. 按 v4 改造 `base64-family.md` 与 `file-magic.md`
+1. **U02 Python 最小可用**（5 节，节表已定，见 `03-backlog.md`）
+2. U03 → U04 → Part 0 收尾 → 第一次 Part 级评审
+3. U12 补到 4 节后上线；U10 补节末速查
 4. P1 改用贯穿样本
 
 > **推送策略**：commit 密、push 稀。只在 Part 收尾 / 用户要求 / 修故障时推，避免耗掉 Cloudflare 构建额度。

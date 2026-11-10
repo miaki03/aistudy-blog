@@ -10,6 +10,10 @@
     "utf8": { "zh": "UTF-8", "en": "UTF-8", "first": "U00" },
     "text-vs-binary": { "zh": "文本与二进制", "en": "text vs binary", "first": "U00" },
     "magic-number": { "zh": "魔数", "en": "magic number", "first": "U12" },
-    "base64": { "zh": "Base64", "en": "Base64", "first": "U10" }
+    "base64": { "zh": "Base64", "en": "Base64", "first": "U10" },
+    "path": { "zh": "路径", "en": "path", "first": "U01" },
+    "pipe": { "zh": "管道", "en": "pipe", "first": "U01" },
+    "redirect": { "zh": "重定向", "en": "redirection", "first": "U01" },
+    "field": { "zh": "字段", "en": "field", "first": "U01" }
   }
 }

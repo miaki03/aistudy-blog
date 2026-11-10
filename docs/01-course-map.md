@@ -1,40 +1,54 @@
 # 课程状态表
 
-> 计划在 `07-syllabus.md`。本文档只记**当前完成度**，不记计划。
+> 计划在 `07-syllabus.md`，通用方法在 `PLAYBOOK.md`。本文档只记**当前完成度**。
 
-## 已完成
+## 已上线（draft = false）
 
-| 章 | 页面 | 状态 | 节 | 题 | 时长 |
+| 章 | 页面 | 网址 | 规模 | 题 | 时长 |
 | --- | --- | --- | --- | --- | --- |
-| U00 | `content/skill/u00-data-in-machine.md` | draft | 4 + 自检 + 动手 | 8 | 80 |
-| U10 | `content/skill/base64-family.md` | draft | 4（待补节末速查） | 5 | 70 |
-| U12（部分） | `content/skill/file-magic.md` | draft | 2（待补） | 3 | 40 |
-| P1 | `content/project/p1-encoding-recon.md` | draft | — | 6 | 170 |
+| U00 | `content/skill/u00-data-in-machine.md` | `/s/u00-data-in-machine/` | 526 行 / 11737 字 | 8 | 80 |
+| U01 | `content/skill/u01-terminal.md` | `/s/u01-terminal/` | 599 行 / 12520 字 | 8 | 140 |
+| U10 | `content/skill/base64-family.md` | `/s/base64-family/` | 467 行 / 9298 字 | 5 | 70 |
 
-> U10 与 U12 写于 v3，尚未按 v4 补「节末速查 / 章末术语表」，排在 U04 之后统一改造。
+三篇都是草稿期被逐章核对过的，`check.py` 的 21 条 `verify` 全部实跑通过。
+
+## 草稿中（draft = true）
+
+| 章 | 页面 | 缺口 |
+| --- | --- | --- |
+| U12 | `content/skill/file-magic.md` | 只有 2 节（应为 4），缺节末速查 |
+| P1 | `content/project/p1-encoding-recon.md` | 用的是自造 6 样本，未接贯穿样本集 |
 
 ## 进行中
 
 | 章 | 进度 |
 | --- | --- |
-| U01 终端 | 未开始 |
+| U02 Python 最小可用 | 未开始 |
 
 ## 未开始
 
-Part 0 其余 4 章 → Part 1 → … → Part 6，共 24 章未开。见 `07-syllabus.md` §6。
+Part 0 剩余 2 章（U03、U04）→ Part 1 起共 23 章。见 `07-syllabus.md` §6。
 
 ## 贯穿样本集
 
 | 样本 | 状态 |
 | --- | --- |
-| S-01 … S-07 | ✅ 已生成，`scripts/verify-corpus.py` 20 项断言全过 |
+| S-01 … S-07 | ✅ `scripts/verify-corpus.py` 20 项断言全过 |
+| u01-access.log | ✅ U01 专用，30 行，条数写死 |
+| selftest/ ×5 | ✅ 入口自测，改作 U04 出口检查 |
 
 文件在 `static/samples/`，站点路径 `/samples/S-01.png`，由 `scripts/build-corpus.py` 确定性重建。
 
-## 概念台账
+## 工程
 
-`kb/concepts.json` 已登记 10 个概念。`scripts/check.py` 会拦住「声明了未登记的概念」「台账说 A 章定义但 A 章没声明」两类漂移。
+| 项 | 状态 |
+| --- | --- |
+| 题库 `kb/problems.json` | 30 条（机器可验 24 / 人工证据 6） |
+| 概念台账 `kb/concepts.json` | 14 条 |
+| `scripts/check.py` | 题目库 + 概念台账 + 复用门槛，全绿 |
+| `specs/` | U00、U01 有节表与实测记录 |
+| 发布构建 | `hugo --gc --minify` 30 页，`/s/` 三页可达 |
 
 ## 旧版 8 篇
 
-`content/post/learning-path-*.md`，模块导语性质，不动。计划降级为「旧版归档」，不参与课程依赖。
+`content/post/learning-path-*.md`，模块导语性质，不动。

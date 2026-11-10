@@ -327,6 +327,42 @@ def build_s07(rng, path):
     return key
 
 
+U01_IPS = [
+    ("203.0.113.7", 10),
+    ("198.51.100.23", 8),
+    ("192.0.2.88", 6),
+    ("203.0.113.91", 4),
+    ("198.51.100.5", 2),
+]
+
+
+def build_u01_log():
+    """U01 的教学用访问日志。30 行，各 IP / 路径 / 状态码的条数全部写死，
+    这样正文与题目里的数字不会随随机种子漂移。"""
+    rng = random.Random(SEED + 1)
+    paths = (
+        ["/"] * 8
+        + ["/login"] * 6
+        + ["/admin"] * 5
+        + ["/api/v1/list?page=2"] * 6
+        + ["/static/app.js"] * 5
+    )
+    statuses = [200] * 23 + [404] * 5 + [302] * 2
+    ips = []
+    for ip, n in U01_IPS:
+        ips.extend([ip] * n)
+    rng.shuffle(paths)
+    rng.shuffle(statuses)
+    rng.shuffle(ips)
+    lines = []
+    for i, (ip, path, st) in enumerate(zip(ips, paths, statuses)):
+        method = "POST" if path == "/login" and i % 3 == 0 else "GET"
+        lines.append(
+            f"2026-11-10T08:{i // 60:02d}:{i % 60:02d}Z {ip} {method} {path} {st} {200 + (i * 137) % 4000}"
+        )
+    return ("\n".join(lines) + "\n").encode()
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     if "--list" in sys.argv:
@@ -349,6 +385,11 @@ def main():
         with open(p, "wb") as f:
             f.write(blob)
         print(f"  {name:12s} {len(blob):>7d} bytes")
+
+    blob = build_u01_log()
+    with open(os.path.join(OUT, "u01-access.log"), "wb") as f:
+        f.write(blob)
+    print(f"  {'u01-access.log':12s} {len(blob):>7d} bytes")
 
     key = build_s07(rng, os.path.join(OUT, "S-07"))
     if key:
