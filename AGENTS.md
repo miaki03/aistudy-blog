@@ -55,7 +55,8 @@ python3 scripts/verify-corpus.py
 - 只在三种时机推送：**一个 Part 收尾**、用户明确要求、修线上故障；
 - Cloudflare Pages 每次推送都触发一次构建，免费额度按次计，省下来留给真正要上线的更新；
 - 推送前先在本地跑 `hugo -D --gc --minify`，**不要拿云端构建当调试手段**；
-- 推送命令：`GIT_SSH=$HOME/.git-ssh-443.sh git push origin main`。
+- 推送命令：`GIT_SSH=/home/miaki/.git-ssh-443.sh git push origin main`
+  （**不要写 `$HOME`**：在 `wsl.exe -e bash -lc` 里它会被 Windows 的 `HOME` 污染成 `C:UsersMiaki`）
 
 ## 目录约定
 

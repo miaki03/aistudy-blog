@@ -276,6 +276,88 @@
       "answer": "23 200 / 5 404 / 2 302；说明 uniq 只合并相邻；域名 ctf.example，Cookie 值 UzA2LWh0dHAtYjY0LW9r 是 Base64",
       "manual": true,
       "evidence": "第 1 问必须是三行且次数为 23/5/2；第 2 问须引用 25 与 5 两个数字；第 3 问须给出 ctf.example 与 UzA2LWh0dHAtYjY0LW9y 中的正确一值并指出是 Base64。"
+    },
+    {
+      "id": "U02.1-01",
+      "page": "u02-python-min",
+      "skills": ["python"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "2",
+      "verify": "python3 -c 'print(len(\"你好\"))'"
+    },
+    {
+      "id": "U02.2-01",
+      "page": "u02-python-min",
+      "skills": ["python", "fstring"],
+      "difficulty": 2,
+      "minutes": 3,
+      "answer": "flag{ok}",
+      "verify": "python3 -c 'name=\"ok\"; print(f\"flag{{{name}}}\")'"
+    },
+    {
+      "id": "U02.3-01",
+      "page": "u02-python-min",
+      "skills": ["python", "list"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "[0, 2, 4, 6]",
+      "verify": "python3 -c 'print([x*2 for x in range(4)])'"
+    },
+    {
+      "id": "U02.4-01",
+      "page": "u02-python-min",
+      "skills": ["python", "function"],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "10 1",
+      "verify": "python3 -c 'def f(x): return x*2 if x > 3 else x\nprint(f(5), f(1))'"
+    },
+    {
+      "id": "U02.5-01",
+      "page": "u02-python-min",
+      "skills": ["python", "file-io"],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "30",
+      "verify": "python3 -c \"print(sum(1 for _ in open('static/samples/u01-access.log')))\""
+    },
+    {
+      "id": "U02.6-01",
+      "page": "u02-python-min",
+      "skills": ["python", "string"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "['a', 'b', 'c']",
+      "verify": "python3 -c 'print(\"a,b,c\".split(\",\"))'"
+    },
+    {
+      "id": "U02.6-02",
+      "page": "u02-python-min",
+      "skills": ["python", "string"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "a-b",
+      "verify": "python3 -c 'print(\"-\".join([\"a\",\"b\"]))'"
+    },
+    {
+      "id": "U02.6-03",
+      "page": "u02-python-min",
+      "skills": ["python", "string"],
+      "difficulty": 2,
+      "minutes": 3,
+      "answer": "'hi'",
+      "verify": "python3 -c 's=\"  hi  \"; print(repr(s.strip()))'"
+    },
+    {
+      "id": "U02.7-01",
+      "page": "u02-python-min",
+      "skills": ["python", "dict"],
+      "difficulty": 3,
+      "minutes": 20,
+      "answer": "10 203.0.113.7 / 8 198.51.100.23 / 6 192.0.2.88 三行",
+      "manual": true,
+      "evidence": "三行且顺序为 203.0.113.7(10) / 198.51.100.23(8) / 192.0.2.88(6)。必须用 dict 累加，不得直接调用外部命令。"
     }
   ]
 }

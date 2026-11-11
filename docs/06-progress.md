@@ -22,19 +22,19 @@
 3. **大纲 v4**（7 Part / 26 章 / 103 节 / 8 项目，对标 C++ Primer）+ **工作流 v3**（节为交付原子）。
 4. **`docs/PLAYBOOK.md`**：学科无关的教材生产手册，可复刻到高数等主题。
 5. **贯穿样本集 S-01…S-07** + `u01-access.log` + `selftest/`，`build-corpus.py` 确定性重建，`verify-corpus.py` 20 项断言全过。
-6. **`kb/concepts.json`** 14 条 + **`scripts/check.py`**（题目库 / 概念台账 / 复用门槛）。
-7. **已上线三篇**：U00（8 题）、U01（8 题）、U10（5 题）。
+6. **`kb/concepts.json`** 20 条 + **`scripts/check.py`**（题目库 / 概念台账 / 复用门槛）。
+7. **已上线四篇**：U00（8 题）、U01（8 题）、U02（9 题）、U10（5 题），共 30 题。
 8. `scripts/selftest.py` + 5 道入口自测（改作 U04 出口检查）。
 
 ## 下一步
 
-1. **U02 Python 最小可用**（5 节，节表已定，见 `03-backlog.md`）
-2. U03 → U04 → Part 0 收尾 → 第一次 Part 级评审
+1. **U03 Python 与字节**（4 节，节表已定，见 `03-backlog.md`）
+2. U04 → Part 0 收尾 → 入口自测 → 第一次 Part 级评审
 3. U12 补到 4 节后上线；U10 补节末速查
 4. P1 改用贯穿样本
 
 > **推送策略**：commit 密、push 稀。只在 Part 收尾 / 用户要求 / 修故障时推，避免耗掉 Cloudflare 构建额度。
-> 当前本地 `main` 领先 `origin/main` 3 个提交，未推。
+> 上次推送 `59df372`（上线 U00/U01/U10）。此后 U02 起未推，等 Part 0 收尾一起推。
 
 ## 可复用的方法论文档
 

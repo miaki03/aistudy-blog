@@ -14,6 +14,12 @@
     "path": { "zh": "路径", "en": "path", "first": "U01" },
     "pipe": { "zh": "管道", "en": "pipe", "first": "U01" },
     "redirect": { "zh": "重定向", "en": "redirection", "first": "U01" },
-    "field": { "zh": "字段", "en": "field", "first": "U01" }
+    "field": { "zh": "字段", "en": "field", "first": "U01" },
+    "script": { "zh": "脚本", "en": "script", "first": "U02" },
+    "variable": { "zh": "变量", "en": "variable", "first": "U02" },
+    "string": { "zh": "字符串", "en": "string", "first": "U02" },
+    "list": { "zh": "列表", "en": "list", "first": "U02" },
+    "dict": { "zh": "字典", "en": "dict", "first": "U02" },
+    "function": { "zh": "函数", "en": "function", "first": "U02" }
   }
 }
