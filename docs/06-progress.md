@@ -20,7 +20,8 @@
 1. 站点独立成仓库，主题子模块锁 `2f8b1be`。
 2. 旧文 8 篇迁移到 `/p/<slug>/`。
 3. **大纲 v4**（7 Part / 26 章 / 103 节 / 8 项目，对标 C++ Primer）+ **工作流 v3**（节为交付原子）。
-4. **`docs/PLAYBOOK.md`**：学科无关的教材生产手册，可复刻到高数等主题。
+4. **`content/page/playbook.md`（线上 `/playbook/`）**：学科无关的教材生产手册，可复刻到高数等主题。
+5. **`content/page/course.md`（线上 `/course/`）**：课程总览与阅读顺序，主导航第二个入口。
 5. **贯穿样本集 S-01…S-07** + `u01-access.log` + `selftest/`，`build-corpus.py` 确定性重建，`verify-corpus.py` 20 项断言全过。
 6. **`kb/concepts.json`** 20 条 + **`scripts/check.py`**（题目库 / 概念台账 / 复用门槛）。
 7. **Part 0 完成并上线**：U00（8 题）、U01（8 题）、U02（9 题）、U03（8 题）、U04（8 题）+ U10（5 题），共 46 题。评审见 `docs/reviews/P0.md`。
@@ -38,7 +39,7 @@
 
 ## 可复用的方法论文档
 
-[`docs/PLAYBOOK.md`](PLAYBOOK.md) —— 学科无关的教材生产手册。换主题（高数、语言、乐理）时照它做，含 12 步复刻清单与学科适配表。
+[`content/page/playbook.md`](../../../content/page/playbook.md) —— 学科无关的教材生产手册，线上地址 `/playbook/`。换主题（高数、语言、乐理）时照它做，含 12 步复刻清单与学科适配表。
 
 ## 命令速查
 

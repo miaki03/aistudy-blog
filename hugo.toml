@@ -7,7 +7,7 @@ copyright = "Miaki"
 enableEmoji = true
 
 [Params]
-mainSections = ["post"]
+mainSections = ["skill", "project", "post"]
 
 [permalinks]
     post = "/p/:slug/"
@@ -20,7 +20,7 @@ published = "Jan 02,2006"
 
 [Params.sidebar]
 emoji = "🧩"
-subtitle = "三线并进 · 单人自学 16 周"
+subtitle = "7 个 Part · 26 章 · 103 节｜单人自学"
 
 [Params.footer]
 since = 2026
@@ -44,6 +44,14 @@ default = "auto"
     weight = 10
 [menu.main.params]
     icon = "home"
+[[menu.main]]
+    name = '课程'
+    url = '/course/'
+    weight = 15
+[[menu.main]]
+    name = '方法论'
+    url = '/playbook/'
+    weight = 18
 [[menu.main]]
     name = '关于'
     pageRef = '/about'
