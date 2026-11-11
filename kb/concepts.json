@@ -20,6 +20,9 @@
     "string": { "zh": "字符串", "en": "string", "first": "U02" },
     "list": { "zh": "列表", "en": "list", "first": "U02" },
     "dict": { "zh": "字典", "en": "dict", "first": "U02" },
-    "function": { "zh": "函数", "en": "function", "first": "U02" }
+    "function": { "zh": "函数", "en": "function", "first": "U02" },
+    "bytes-type": { "zh": "字节串", "en": "bytes", "first": "U03" },
+    "encode-decode": { "zh": "编码与解码", "en": "encode / decode", "first": "U03" },
+    "endianness": { "zh": "字节序", "en": "endianness", "first": "U03" }
   }
 }

@@ -358,6 +358,79 @@
       "answer": "10 203.0.113.7 / 8 198.51.100.23 / 6 192.0.2.88 三行",
       "manual": true,
       "evidence": "三行且顺序为 203.0.113.7(10) / 198.51.100.23(8) / 192.0.2.88(6)。必须用 dict 累加，不得直接调用外部命令。"
+    },
+    {
+      "id": "U03.1-01",
+      "page": "u03-python-bytes",
+      "skills": ["python", "bytes"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "6",
+      "verify": "python3 -c 'print(len(\"你好\".encode()))'"
+    },
+    {
+      "id": "U03.2-01",
+      "page": "u03-python-bytes",
+      "skills": ["python", "bytes", "encode-decode"],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "1",
+      "verify": "python3 -c \"print(len(b'\\xe4\\xbd'.decode('utf-8', errors='replace')))\""
+    },
+    {
+      "id": "U03.3-01",
+      "page": "u03-python-bytes",
+      "skills": ["python", "bytes", "endianness"],
+      "difficulty": 2,
+      "minutes": 3,
+      "answer": "00000040",
+      "verify": "python3 -c 'print((64).to_bytes(4, \"big\").hex())'"
+    },
+    {
+      "id": "U03.4-01",
+      "page": "u03-python-bytes",
+      "skills": ["python", "bytes", "magic-bytes"],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "32",
+      "verify": "python3 -c \"print(open('static/samples/S-04.gz','rb').read().find(b'\\x1f\\x8b\\x08'))\""
+    },
+    {
+      "id": "U03.5-01",
+      "page": "u03-python-bytes",
+      "skills": ["python", "bytes"],
+      "difficulty": 1,
+      "minutes": 2,
+      "answer": "False",
+      "verify": "python3 -c \"print(b'abc' == 'abc')\""
+    },
+    {
+      "id": "U03.5-02",
+      "page": "u03-python-bytes",
+      "skills": ["python", "bytes", "endianness"],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "64",
+      "verify": "python3 -c \"d=open('static/samples/S-01.png','rb').read(); print(int.from_bytes(d[16:20],'big'))\""
+    },
+    {
+      "id": "U03.5-03",
+      "page": "u03-python-bytes",
+      "skills": ["python", "bytes"],
+      "difficulty": 1,
+      "minutes": 2,
+      "answer": "65",
+      "verify": "python3 -c \"print(b'A'[0])\""
+    },
+    {
+      "id": "U03.6-01",
+      "page": "u03-python-bytes",
+      "skills": ["python", "bytes", "gzip"],
+      "difficulty": 3,
+      "minutes": 20,
+      "answer": "83 / 32 / S04 gzip payload: offset-found 三行",
+      "manual": true,
+      "evidence": "三行且顺序正确；脚本必须用 find 动态定位偏移，出现写死的 d[32:] 即判不合格。"
     }
   ]
 }
