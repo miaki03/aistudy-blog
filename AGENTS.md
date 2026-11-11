@@ -5,7 +5,7 @@
 一套面向单人自学的 **ARG / CTF / Puzzle Hunt** 课程，以 Hugo 静态站发布在 `ai.xcfx.com`。
 仓库：`github.com/miaki03/aistudy-blog`（**不是** `miaki-blog`，那个是博主自己的博客，不要动）。
 
-**方法论与流水线的学科无关版本在 [`content/page/playbook.md`](content/page/playbook.md)（线上 `/playbook/`）**：换成高数、语言、乐理等主题时照它做，本文件的仓库约定则按新仓库改。
+**方法论与流水线的学科无关版本在 [`docs/PLAYBOOK.md`](docs/PLAYBOOK.md)**：换成高数、语言、乐理等主题时照它做，本文件的仓库约定则按新仓库改。**它只给 agent 用，不进 Hugo 构建、不上线、不加导航。**
 **课程总览与阅读顺序在 [`content/page/course.md`](content/page/course.md)（线上 `/course/`）**：加新章后要同步更新它，否则读者找不到。
 
 ## 环境事实（省去重复勘探）

@@ -49,10 +49,6 @@ default = "auto"
     url = '/course/'
     weight = 15
 [[menu.main]]
-    name = '方法论'
-    url = '/playbook/'
-    weight = 18
-[[menu.main]]
     name = '关于'
     pageRef = '/about'
     weight = 20
