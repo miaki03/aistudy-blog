@@ -23,6 +23,9 @@
     "function": { "zh": "函数", "en": "function", "first": "U02" },
     "bytes-type": { "zh": "字节串", "en": "bytes", "first": "U03" },
     "encode-decode": { "zh": "编码与解码", "en": "encode / decode", "first": "U03" },
-    "endianness": { "zh": "字节序", "en": "endianness", "first": "U03" }
+    "endianness": { "zh": "字节序", "en": "endianness", "first": "U03" },
+    "bitwise": { "zh": "位运算", "en": "bitwise operation", "first": "U04" },
+    "mask": { "zh": "掩码", "en": "mask", "first": "U04" },
+    "bit-plane": { "zh": "位平面", "en": "bit plane", "first": "U04" }
   }
 }

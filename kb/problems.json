@@ -431,6 +431,79 @@
       "answer": "83 / 32 / S04 gzip payload: offset-found 三行",
       "manual": true,
       "evidence": "三行且顺序正确；脚本必须用 find 动态定位偏移，出现写死的 d[32:] 即判不合格。"
+    },
+    {
+      "id": "U04.1-01",
+      "page": "u04-bits",
+      "skills": ["python", "bitwise"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "6",
+      "verify": "python3 -c 'print(0b1100 ^ 0b1010)'"
+    },
+    {
+      "id": "U04.2-01",
+      "page": "u04-bits",
+      "skills": ["python", "bitwise", "mask"],
+      "difficulty": 2,
+      "minutes": 3,
+      "answer": "0",
+      "verify": "python3 -c 'print((0b10110110 >> 3) & 1)'"
+    },
+    {
+      "id": "U04.3-01",
+      "page": "u04-bits",
+      "skills": ["python", "bitwise", "mask"],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "0b1000",
+      "verify": "python3 -c 'n=0b1010; print(bin(n & ~(1<<1)))'"
+    },
+    {
+      "id": "U04.4-01",
+      "page": "u04-bits",
+      "skills": ["python", "bit-plane"],
+      "difficulty": 2,
+      "minutes": 3,
+      "answer": "S",
+      "verify": "python3 -c \"print(chr(int('01010011',2)))\""
+    },
+    {
+      "id": "U04.5-01",
+      "page": "u04-bits",
+      "skills": ["python", "mask"],
+      "difficulty": 1,
+      "minutes": 2,
+      "answer": "4",
+      "verify": "python3 -c 'print(0xE4 & 0x0F)'"
+    },
+    {
+      "id": "U04.5-02",
+      "page": "u04-bits",
+      "skills": ["python", "mask"],
+      "difficulty": 1,
+      "minutes": 2,
+      "answer": "0xffff",
+      "verify": "python3 -c 'print(hex((1 << 16) - 1))'"
+    },
+    {
+      "id": "U04.5-03",
+      "page": "u04-bits",
+      "skills": ["python", "bitwise"],
+      "difficulty": 1,
+      "minutes": 2,
+      "answer": "-1",
+      "verify": "python3 -c 'print(~0)'"
+    },
+    {
+      "id": "U04.6-01",
+      "page": "u04-bits",
+      "skills": ["python", "bit-plane", "lsb"],
+      "difficulty": 3,
+      "minutes": 25,
+      "answer": "S01-LSB-OK",
+      "manual": true,
+      "evidence": "输出前 10 字符必须是 S01-LSB-OK；脚本须自己解 PNG 的 IDAT 并处理每行 1 字节过滤器前缀。可用 scripts/verify-corpus.py 的 S-01 断言核对。"
     }
   ]
 }
