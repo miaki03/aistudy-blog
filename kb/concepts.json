@@ -1,33 +1,120 @@
 {
   "_说明": "概念台账。每个概念只能有一个首次定义章（first）。新章节只能引用已登记的概念，或自己定义并登记——这是自动发现语义漂移的唯一手段。",
   "concepts": {
-    "bit": { "zh": "位", "en": "bit", "first": "U00" },
-    "byte": { "zh": "字节", "en": "byte", "first": "U00" },
-    "hex": { "zh": "十六进制", "en": "hexadecimal", "first": "U00" },
-    "offset": { "zh": "偏移", "en": "offset", "first": "U00" },
-    "printable": { "zh": "可打印字符", "en": "printable character", "first": "U00" },
-    "ascii": { "zh": "ASCII", "en": "ASCII", "first": "U00" },
-    "utf8": { "zh": "UTF-8", "en": "UTF-8", "first": "U00" },
-    "text-vs-binary": { "zh": "文本与二进制", "en": "text vs binary", "first": "U00" },
-    "magic-number": { "zh": "魔数", "en": "magic number", "first": "U12" },
-    "base64": { "zh": "Base64", "en": "Base64", "first": "U10" },
-    "path": { "zh": "路径", "en": "path", "first": "U04" },
-    "pipe": { "zh": "管道", "en": "pipe", "first": "U04" },
-    "redirect": { "zh": "重定向", "en": "redirection", "first": "U04" },
-    "field": { "zh": "字段", "en": "field", "first": "U04" },
-    "script": { "zh": "脚本", "en": "script", "first": "U05" },
-    "variable": { "zh": "变量", "en": "variable", "first": "U05" },
-    "string": { "zh": "字符串", "en": "string", "first": "U05" },
-    "list": { "zh": "列表", "en": "list", "first": "U05" },
-    "dict": { "zh": "字典", "en": "dict", "first": "U05" },
-    "function": { "zh": "函数", "en": "function", "first": "U05" },
-    "bytes-type": { "zh": "字节串", "en": "bytes", "first": "U06" },
-    "encode-decode": { "zh": "编码与解码", "en": "encode / decode", "first": "U06" },
-    "endianness": { "zh": "字节序", "en": "endianness", "first": "U06" },
-    "bitwise": { "zh": "位运算", "en": "bitwise operation", "first": "U07" },
-    "mask": { "zh": "掩码", "en": "mask", "first": "U07" },
-    "bit-plane": { "zh": "位平面", "en": "bit plane", "first": "U07" },
-    "pseudo-encryption": { "zh": "伪加密", "en": "pseudo-encryption", "first": "U12" },
-    "appended-data": { "zh": "附加数据", "en": "appended data", "first": "U12" }
+    "byte": {
+      "zh": "字节",
+      "en": "byte",
+      "first": "U00"
+    },
+    "offset": {
+      "zh": "偏移",
+      "en": "offset",
+      "first": "U00"
+    },
+    "printable": {
+      "zh": "可打印字符",
+      "en": "printable character",
+      "first": "U00"
+    },
+    "magic-number": {
+      "zh": "魔数",
+      "en": "magic number",
+      "first": "U12"
+    },
+    "base64": {
+      "zh": "Base64",
+      "en": "Base64",
+      "first": "U10"
+    },
+    "path": {
+      "zh": "路径",
+      "en": "path",
+      "first": "U04"
+    },
+    "pipe": {
+      "zh": "管道",
+      "en": "pipe",
+      "first": "U04"
+    },
+    "redirect": {
+      "zh": "重定向",
+      "en": "redirection",
+      "first": "U04"
+    },
+    "field": {
+      "zh": "字段",
+      "en": "field",
+      "first": "U04"
+    },
+    "script": {
+      "zh": "脚本",
+      "en": "script",
+      "first": "U05"
+    },
+    "variable": {
+      "zh": "变量",
+      "en": "variable",
+      "first": "U05"
+    },
+    "string": {
+      "zh": "字符串",
+      "en": "string",
+      "first": "U05"
+    },
+    "list": {
+      "zh": "列表",
+      "en": "list",
+      "first": "U05"
+    },
+    "dict": {
+      "zh": "字典",
+      "en": "dict",
+      "first": "U05"
+    },
+    "function": {
+      "zh": "函数",
+      "en": "function",
+      "first": "U05"
+    },
+    "bytes-type": {
+      "zh": "字节串",
+      "en": "bytes",
+      "first": "U06"
+    },
+    "encode-decode": {
+      "zh": "编码与解码",
+      "en": "encode / decode",
+      "first": "U06"
+    },
+    "endianness": {
+      "zh": "字节序",
+      "en": "endianness",
+      "first": "U06"
+    },
+    "bitwise": {
+      "zh": "位运算",
+      "en": "bitwise operation",
+      "first": "U07"
+    },
+    "mask": {
+      "zh": "掩码",
+      "en": "mask",
+      "first": "U07"
+    },
+    "bit-plane": {
+      "zh": "位平面",
+      "en": "bit plane",
+      "first": "U07"
+    },
+    "pseudo-encryption": {
+      "zh": "伪加密",
+      "en": "pseudo-encryption",
+      "first": "U12"
+    },
+    "appended-data": {
+      "zh": "附加数据",
+      "en": "appended data",
+      "first": "U12"
+    }
   }
 }

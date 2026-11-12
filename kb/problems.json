@@ -3,7 +3,9 @@
     {
       "id": "B64-01",
       "page": "base64-family",
-      "skills": ["base64"],
+      "skills": [
+        "base64"
+      ],
       "difficulty": 1,
       "minutes": 3,
       "answer": "flag{b64_is_grouping_not_characters}",
@@ -12,7 +14,10 @@
     {
       "id": "B64-02",
       "page": "base64-family",
-      "skills": ["base64", "padding"],
+      "skills": [
+        "base64",
+        "padding"
+      ],
       "difficulty": 2,
       "minutes": 4,
       "answer": "flag{padding}",
@@ -21,7 +26,10 @@
     {
       "id": "B64-03",
       "page": "base64-family",
-      "skills": ["base64url", "json"],
+      "skills": [
+        "base64url",
+        "json"
+      ],
       "difficulty": 2,
       "minutes": 4,
       "answer": "{\"alg\":\"HS256\",\"typ\":\"JWT\"}",
@@ -30,7 +38,9 @@
     {
       "id": "B64-04",
       "page": "base64-family",
-      "skills": ["base32"],
+      "skills": [
+        "base32"
+      ],
       "difficulty": 2,
       "minutes": 3,
       "answer": "flag",
@@ -39,7 +49,9 @@
     {
       "id": "B64-05",
       "page": "base64-family",
-      "skills": ["base16"],
+      "skills": [
+        "base16"
+      ],
       "difficulty": 1,
       "minutes": 2,
       "answer": "flag{hex}",
@@ -48,7 +60,9 @@
     {
       "id": "P1-01",
       "page": "p1-encoding-recon",
-      "skills": ["base64"],
+      "skills": [
+        "base64"
+      ],
       "difficulty": 1,
       "minutes": 3,
       "answer": "flag{b64_is_grouping_not_characters}",
@@ -57,7 +71,9 @@
     {
       "id": "P1-02",
       "page": "p1-encoding-recon",
-      "skills": ["base32"],
+      "skills": [
+        "base32"
+      ],
       "difficulty": 2,
       "minutes": 3,
       "answer": "flag{padding}",
@@ -66,7 +82,9 @@
     {
       "id": "P1-03",
       "page": "p1-encoding-recon",
-      "skills": ["base16"],
+      "skills": [
+        "base16"
+      ],
       "difficulty": 1,
       "minutes": 2,
       "answer": "flag{hex}",
@@ -75,7 +93,9 @@
     {
       "id": "P1-04",
       "page": "p1-encoding-recon",
-      "skills": ["base64url"],
+      "skills": [
+        "base64url"
+      ],
       "difficulty": 2,
       "minutes": 3,
       "answer": "{\"alg\":\"HS256\",\"typ\":\"JWT\"}",
@@ -84,7 +104,10 @@
     {
       "id": "P1-05",
       "page": "p1-encoding-recon",
-      "skills": ["file-command", "magic-bytes"],
+      "skills": [
+        "file-command",
+        "magic-bytes"
+      ],
       "difficulty": 1,
       "minutes": 3,
       "answer": "Zip archive",
@@ -94,7 +117,9 @@
     {
       "id": "P1-06",
       "page": "p1-encoding-recon",
-      "skills": ["append-data"],
+      "skills": [
+        "append-data"
+      ],
       "difficulty": 3,
       "minutes": 10,
       "answer": "flag{appended_after_eof}",
@@ -102,82 +127,12 @@
       "evidence": "同 F-03：PNG 尾部追加 zip，需自己搜 PK 偏移再切出"
     },
     {
-      "id": "U00.1-01",
-      "page": "u00-data-in-machine",
-      "skills": ["offset", "ascii"],
-      "difficulty": 1,
-      "minutes": 3,
-      "answer": "IHDR",
-      "verify": "python3 -c \"print(open('static/samples/S-01.png','rb').read()[12:16].decode())\""
-    },
-    {
-      "id": "U00.2-01",
-      "page": "u00-data-in-machine",
-      "skills": ["hex"],
-      "difficulty": 1,
-      "minutes": 3,
-      "answer": "c8",
-      "verify": "python3 -c \"print(format(200,'02x'))\""
-    },
-    {
-      "id": "U00.3-01",
-      "page": "u00-data-in-machine",
-      "skills": ["ascii"],
-      "difficulty": 1,
-      "minutes": 3,
-      "answer": "32",
-      "verify": "python3 -c \"print(ord('a')-ord('A'))\""
-    },
-    {
-      "id": "U00.4-01",
-      "page": "u00-data-in-machine",
-      "skills": ["utf8"],
-      "difficulty": 2,
-      "minutes": 4,
-      "answer": "e4",
-      "verify": "python3 -c \"print('你'.encode()[:1].hex())\""
-    },
-    {
-      "id": "U00.5-01",
-      "page": "u00-data-in-machine",
-      "skills": ["ascii", "bytes"],
-      "difficulty": 1,
-      "minutes": 3,
-      "answer": "123",
-      "verify": "python3 -c \"print(bytes([0x31,0x32,0x33]).decode())\""
-    },
-    {
-      "id": "U00.5-02",
-      "page": "u00-data-in-machine",
-      "skills": ["offset", "magic-bytes"],
-      "difficulty": 2,
-      "minutes": 3,
-      "answer": "1f8b08",
-      "verify": "xxd -s 32 -l 3 -p static/samples/S-04.gz"
-    },
-    {
-      "id": "U00.5-03",
-      "page": "u00-data-in-machine",
-      "skills": ["text-vs-binary"],
-      "difficulty": 2,
-      "minutes": 4,
-      "answer": "binary",
-      "verify": "python3 -c \"d=open('static/samples/S-01.png','rb').read()\ntry:\n d.decode('utf-8');print('text')\nexcept UnicodeDecodeError:\n print('binary')\""
-    },
-    {
-      "id": "U00.6-01",
-      "page": "u00-data-in-machine",
-      "skills": ["offset", "file-command", "text-vs-binary"],
-      "difficulty": 3,
-      "minutes": 25,
-      "answer": "7 行表格，每行含前 16 字节、file 输出、自己的判断",
-      "manual": true,
-      "evidence": "必须有 7 行；S-04 那行要指出 file 被前 32 字节垃圾骗了、真实数据从偏移 32 开始（1f8b08）。可用 scripts/verify-corpus.py 的输出核对。"
-    },
-    {
       "id": "U04.1-01",
       "page": "u04-terminal",
-      "skills": ["shell", "wc"],
+      "skills": [
+        "shell",
+        "wc"
+      ],
       "difficulty": 1,
       "minutes": 3,
       "answer": "30",
@@ -186,7 +141,11 @@
     {
       "id": "U04.3-01",
       "page": "u04-terminal",
-      "skills": ["shell", "sort", "uniq"],
+      "skills": [
+        "shell",
+        "sort",
+        "uniq"
+      ],
       "difficulty": 2,
       "minutes": 5,
       "answer": "10 203.0.113.7",
@@ -195,7 +154,10 @@
     {
       "id": "U04.4-01",
       "page": "u04-terminal",
-      "skills": ["shell", "cut"],
+      "skills": [
+        "shell",
+        "cut"
+      ],
       "difficulty": 1,
       "minutes": 3,
       "answer": "/login",
@@ -204,7 +166,10 @@
     {
       "id": "U04.5-01",
       "page": "u04-terminal",
-      "skills": ["shell", "awk"],
+      "skills": [
+        "shell",
+        "awk"
+      ],
       "difficulty": 2,
       "minutes": 4,
       "answer": "5",
@@ -213,7 +178,10 @@
     {
       "id": "U04.6-01",
       "page": "u04-terminal",
-      "skills": ["shell", "grep"],
+      "skills": [
+        "shell",
+        "grep"
+      ],
       "difficulty": 1,
       "minutes": 3,
       "answer": "6",
@@ -222,7 +190,10 @@
     {
       "id": "U04.6-02",
       "page": "u04-terminal",
-      "skills": ["shell", "uniq"],
+      "skills": [
+        "shell",
+        "uniq"
+      ],
       "difficulty": 2,
       "minutes": 4,
       "answer": "25",
@@ -231,7 +202,10 @@
     {
       "id": "U04.6-03",
       "page": "u04-terminal",
-      "skills": ["shell", "strings"],
+      "skills": [
+        "shell",
+        "strings"
+      ],
       "difficulty": 2,
       "minutes": 5,
       "answer": "/files/%E4%BD%A0%E5%A5%BD.txt",
@@ -240,7 +214,12 @@
     {
       "id": "U04.7-01",
       "page": "u04-terminal",
-      "skills": ["shell", "sort", "uniq", "strings"],
+      "skills": [
+        "shell",
+        "sort",
+        "uniq",
+        "strings"
+      ],
       "difficulty": 3,
       "minutes": 20,
       "answer": "23 200 / 5 404 / 2 302；说明 uniq 只合并相邻；域名 ctf.example，Cookie 值 UzA2LWh0dHAtYjY0LW9r 是 Base64",
@@ -250,7 +229,9 @@
     {
       "id": "U05.1-01",
       "page": "u05-python-min",
-      "skills": ["python"],
+      "skills": [
+        "python"
+      ],
       "difficulty": 1,
       "minutes": 3,
       "answer": "2",
@@ -259,7 +240,10 @@
     {
       "id": "U05.2-01",
       "page": "u05-python-min",
-      "skills": ["python", "fstring"],
+      "skills": [
+        "python",
+        "fstring"
+      ],
       "difficulty": 2,
       "minutes": 3,
       "answer": "flag{ok}",
@@ -268,7 +252,10 @@
     {
       "id": "U05.3-01",
       "page": "u05-python-min",
-      "skills": ["python", "list"],
+      "skills": [
+        "python",
+        "list"
+      ],
       "difficulty": 1,
       "minutes": 3,
       "answer": "[0, 2, 4, 6]",
@@ -277,7 +264,10 @@
     {
       "id": "U05.4-01",
       "page": "u05-python-min",
-      "skills": ["python", "function"],
+      "skills": [
+        "python",
+        "function"
+      ],
       "difficulty": 2,
       "minutes": 4,
       "answer": "10 1",
@@ -286,7 +276,10 @@
     {
       "id": "U05.5-01",
       "page": "u05-python-min",
-      "skills": ["python", "file-io"],
+      "skills": [
+        "python",
+        "file-io"
+      ],
       "difficulty": 2,
       "minutes": 4,
       "answer": "30",
@@ -295,7 +288,10 @@
     {
       "id": "U05.6-01",
       "page": "u05-python-min",
-      "skills": ["python", "string"],
+      "skills": [
+        "python",
+        "string"
+      ],
       "difficulty": 1,
       "minutes": 3,
       "answer": "['a', 'b', 'c']",
@@ -304,7 +300,10 @@
     {
       "id": "U05.6-02",
       "page": "u05-python-min",
-      "skills": ["python", "string"],
+      "skills": [
+        "python",
+        "string"
+      ],
       "difficulty": 1,
       "minutes": 3,
       "answer": "a-b",
@@ -313,7 +312,10 @@
     {
       "id": "U05.6-03",
       "page": "u05-python-min",
-      "skills": ["python", "string"],
+      "skills": [
+        "python",
+        "string"
+      ],
       "difficulty": 2,
       "minutes": 3,
       "answer": "'hi'",
@@ -322,7 +324,10 @@
     {
       "id": "U05.7-01",
       "page": "u05-python-min",
-      "skills": ["python", "dict"],
+      "skills": [
+        "python",
+        "dict"
+      ],
       "difficulty": 3,
       "minutes": 20,
       "answer": "10 203.0.113.7 / 8 198.51.100.23 / 6 192.0.2.88 三行",
@@ -332,7 +337,10 @@
     {
       "id": "U06.1-01",
       "page": "u06-python-bytes",
-      "skills": ["python", "bytes"],
+      "skills": [
+        "python",
+        "bytes"
+      ],
       "difficulty": 1,
       "minutes": 3,
       "answer": "6",
@@ -341,7 +349,11 @@
     {
       "id": "U06.2-01",
       "page": "u06-python-bytes",
-      "skills": ["python", "bytes", "encode-decode"],
+      "skills": [
+        "python",
+        "bytes",
+        "encode-decode"
+      ],
       "difficulty": 2,
       "minutes": 4,
       "answer": "1",
@@ -350,7 +362,11 @@
     {
       "id": "U06.3-01",
       "page": "u06-python-bytes",
-      "skills": ["python", "bytes", "endianness"],
+      "skills": [
+        "python",
+        "bytes",
+        "endianness"
+      ],
       "difficulty": 2,
       "minutes": 3,
       "answer": "00000040",
@@ -359,7 +375,11 @@
     {
       "id": "U06.4-01",
       "page": "u06-python-bytes",
-      "skills": ["python", "bytes", "magic-bytes"],
+      "skills": [
+        "python",
+        "bytes",
+        "magic-bytes"
+      ],
       "difficulty": 2,
       "minutes": 4,
       "answer": "32",
@@ -368,7 +388,10 @@
     {
       "id": "U06.5-01",
       "page": "u06-python-bytes",
-      "skills": ["python", "bytes"],
+      "skills": [
+        "python",
+        "bytes"
+      ],
       "difficulty": 1,
       "minutes": 2,
       "answer": "False",
@@ -377,7 +400,11 @@
     {
       "id": "U06.5-02",
       "page": "u06-python-bytes",
-      "skills": ["python", "bytes", "endianness"],
+      "skills": [
+        "python",
+        "bytes",
+        "endianness"
+      ],
       "difficulty": 2,
       "minutes": 4,
       "answer": "64",
@@ -386,7 +413,10 @@
     {
       "id": "U06.5-03",
       "page": "u06-python-bytes",
-      "skills": ["python", "bytes"],
+      "skills": [
+        "python",
+        "bytes"
+      ],
       "difficulty": 1,
       "minutes": 2,
       "answer": "65",
@@ -395,7 +425,11 @@
     {
       "id": "U06.6-01",
       "page": "u06-python-bytes",
-      "skills": ["python", "bytes", "gzip"],
+      "skills": [
+        "python",
+        "bytes",
+        "gzip"
+      ],
       "difficulty": 3,
       "minutes": 20,
       "answer": "83 / 32 / S04 gzip payload: offset-found 三行",
@@ -405,7 +439,10 @@
     {
       "id": "U07.1-01",
       "page": "u07-bits",
-      "skills": ["python", "bitwise"],
+      "skills": [
+        "python",
+        "bitwise"
+      ],
       "difficulty": 1,
       "minutes": 3,
       "answer": "6",
@@ -414,7 +451,11 @@
     {
       "id": "U07.2-01",
       "page": "u07-bits",
-      "skills": ["python", "bitwise", "mask"],
+      "skills": [
+        "python",
+        "bitwise",
+        "mask"
+      ],
       "difficulty": 2,
       "minutes": 3,
       "answer": "0",
@@ -423,7 +464,11 @@
     {
       "id": "U07.3-01",
       "page": "u07-bits",
-      "skills": ["python", "bitwise", "mask"],
+      "skills": [
+        "python",
+        "bitwise",
+        "mask"
+      ],
       "difficulty": 2,
       "minutes": 4,
       "answer": "0b1000",
@@ -432,7 +477,10 @@
     {
       "id": "U07.4-01",
       "page": "u07-bits",
-      "skills": ["python", "bit-plane"],
+      "skills": [
+        "python",
+        "bit-plane"
+      ],
       "difficulty": 2,
       "minutes": 3,
       "answer": "S",
@@ -441,7 +489,10 @@
     {
       "id": "U07.5-01",
       "page": "u07-bits",
-      "skills": ["python", "mask"],
+      "skills": [
+        "python",
+        "mask"
+      ],
       "difficulty": 1,
       "minutes": 2,
       "answer": "4",
@@ -450,7 +501,10 @@
     {
       "id": "U07.5-02",
       "page": "u07-bits",
-      "skills": ["python", "mask"],
+      "skills": [
+        "python",
+        "mask"
+      ],
       "difficulty": 1,
       "minutes": 2,
       "answer": "0xffff",
@@ -459,7 +513,10 @@
     {
       "id": "U07.5-03",
       "page": "u07-bits",
-      "skills": ["python", "bitwise"],
+      "skills": [
+        "python",
+        "bitwise"
+      ],
       "difficulty": 1,
       "minutes": 2,
       "answer": "-1",
@@ -468,7 +525,11 @@
     {
       "id": "U07.6-01",
       "page": "u07-bits",
-      "skills": ["python", "bit-plane", "lsb"],
+      "skills": [
+        "python",
+        "bit-plane",
+        "lsb"
+      ],
       "difficulty": 3,
       "minutes": 25,
       "answer": "S01-LSB-OK",
@@ -478,7 +539,10 @@
     {
       "id": "U12.1-01",
       "page": "file-magic",
-      "skills": ["magic-bytes", "file-command"],
+      "skills": [
+        "magic-bytes",
+        "file-command"
+      ],
       "difficulty": 1,
       "minutes": 3,
       "answer": "data",
@@ -487,7 +551,10 @@
     {
       "id": "U12.2-01",
       "page": "file-magic",
-      "skills": ["file-command", "magic-bytes"],
+      "skills": [
+        "file-command",
+        "magic-bytes"
+      ],
       "difficulty": 2,
       "minutes": 3,
       "answer": "OpenPGP Public Key",
@@ -496,7 +563,10 @@
     {
       "id": "U12.3-01",
       "page": "file-magic",
-      "skills": ["zip", "pseudo-encryption"],
+      "skills": [
+        "zip",
+        "pseudo-encryption"
+      ],
       "difficulty": 2,
       "minutes": 3,
       "answer": "1",
@@ -505,7 +575,10 @@
     {
       "id": "U12.3-02",
       "page": "file-magic",
-      "skills": ["png", "endianness"],
+      "skills": [
+        "png",
+        "endianness"
+      ],
       "difficulty": 2,
       "minutes": 3,
       "answer": "32",
@@ -514,7 +587,10 @@
     {
       "id": "U12.4-01",
       "page": "file-magic",
-      "skills": ["append-data", "zip"],
+      "skills": [
+        "append-data",
+        "zip"
+      ],
       "difficulty": 2,
       "minutes": 4,
       "answer": "27",
@@ -523,7 +599,10 @@
     {
       "id": "U12.5-01",
       "page": "file-magic",
-      "skills": ["magic-bytes", "hex"],
+      "skills": [
+        "magic-bytes",
+        "hex"
+      ],
       "difficulty": 1,
       "minutes": 2,
       "answer": "504b0304",
@@ -532,7 +611,10 @@
     {
       "id": "U12.5-02",
       "page": "file-magic",
-      "skills": ["zip", "pseudo-encryption"],
+      "skills": [
+        "zip",
+        "pseudo-encryption"
+      ],
       "difficulty": 2,
       "minutes": 3,
       "answer": "RuntimeError",
@@ -541,7 +623,9 @@
     {
       "id": "U12.5-03",
       "page": "file-magic",
-      "skills": ["zip"],
+      "skills": [
+        "zip"
+      ],
       "difficulty": 1,
       "minutes": 2,
       "answer": "readme.txt",
@@ -550,12 +634,52 @@
     {
       "id": "U12.6-01",
       "page": "file-magic",
-      "skills": ["file-command", "magic-bytes", "append-data", "pseudo-encryption"],
+      "skills": [
+        "file-command",
+        "magic-bytes",
+        "append-data",
+        "pseudo-encryption"
+      ],
       "difficulty": 3,
       "minutes": 25,
       "answer": "四段结论：S-01 正常 / S-02 IHDR CRC 不符 / S-03 伪加密+尾部 27 字节 / S-04 前缀 32 字节垃圾",
       "manual": true,
       "evidence": "S-01 必须判为正常（CRC 相符、IEND 后无剩余）；S-02 须指出 CRC 0x250be689 ≠ 0x2dffe9d3 且实际高 64；S-03 须同时指出 flag_bits=0x1 与 EOCD 后 27 字节；S-04 须指出真实数据从偏移 32 开始。可用 scripts/verify-corpus.py 交叉核对。"
+    },
+    {
+      "id": "U00.1-01",
+      "page": "u00-see-bytes",
+      "skills": [
+        "terminal",
+        "wc"
+      ],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "1681",
+      "verify": "wc -c < static/samples/u01-access.log"
+    },
+    {
+      "id": "U00.2-01",
+      "page": "u00-see-bytes",
+      "skills": [
+        "xxd",
+        "bytes"
+      ],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "89504e47",
+      "verify": "xxd -l 4 -p static/samples/S-01.png"
+    },
+    {
+      "id": "U00.3-01",
+      "page": "u00-see-bytes",
+      "skills": [
+        "file-command"
+      ],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "PNG image data, 64 x 64, 8-bit/color RGB, non-interlaced",
+      "verify": "cp static/samples/S-01.png /tmp/u00a.txt && file -b /tmp/u00a.txt"
     }
   ]
 }
