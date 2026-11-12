@@ -53,7 +53,9 @@ python3 scripts/verify-corpus.py
 **commit 密，push 稀。**
 
 - 本地按节/章提交，**不要每完成一章就推**；
-- 只在三种时机推送：**一个 Part 收尾**、用户明确要求、修线上故障；
+- **绝不**把 `git commit` 和 `git push` 写进同一条命令；
+- **push 前必须单独取得用户当次确认**。「用户批准了某项内容变更」≠「批准推送」，这是两个决定；
+- 任何**改变线上可见内容**的动作（下线页面、改导航、改标题）都要单独确认；
 - Cloudflare Pages 每次推送都触发一次构建，免费额度按次计，省下来留给真正要上线的更新；
 - 推送前先在本地跑 `hugo -D --gc --minify`，**不要拿云端构建当调试手段**；
 - 推送命令：`GIT_SSH=/home/miaki/.git-ssh-443.sh git push origin main`

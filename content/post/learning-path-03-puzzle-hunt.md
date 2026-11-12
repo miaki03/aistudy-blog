@@ -1,6 +1,6 @@
 +++
 date = '2026-11-09T08:55:00+08:00'
-draft = false
+draft = true
 title = '学习路径 03 · Puzzle Hunt：结构学、提取与实战'
 description = "题面解剖、12 种提取法及触发信号、解题循环、完整档案实战与出题入门。"
 categories = ["学习路径"]

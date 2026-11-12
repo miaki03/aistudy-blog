@@ -1,6 +1,6 @@
 +++
 date = '2026-11-09T08:50:00+08:00'
-draft = false
+draft = true
 title = '学习路径 02 · CTF 路线：题型地图与练习阶梯'
 description = "单人可玩性分级、七类题型的标准动作、W3–W6 周任务与单人打比赛策略。"
 categories = ["学习路径"]

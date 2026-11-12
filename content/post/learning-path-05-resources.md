@@ -1,6 +1,6 @@
 +++
 date = '2026-11-09T09:05:00+08:00'
-draft = false
+draft = true
 title = '学习路径 05 · 工具、资源清单与术语表'
 description = "已核验的资源清单、按周分批安装命令、中英日术语表与链接核验记录。"
 categories = ["学习路径"]

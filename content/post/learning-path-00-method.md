@@ -1,6 +1,6 @@
 +++
 date = '2026-11-09T08:40:00+08:00'
-draft = false
+draft = true
 title = '学习路径 00 · 学习方法、卡关策略与复盘'
 description = "三级卡关升级、writeup 两档制、错题本与每周回看、英文资料消化工作流、求助渠道与提问模板。"
 categories = ["学习路径"]

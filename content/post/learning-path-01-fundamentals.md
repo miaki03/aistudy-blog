@@ -1,6 +1,6 @@
 +++
 date = '2026-11-09T08:45:00+08:00'
-draft = false
+draft = true
 title = '学习路径 01 · 基础底座：环境、Python、编码与数制'
 description = "W1–W2：WSL2 工具链、Python 够用速成、编码与数制判断表、10 道自测题（含答案）、古典密码最小集与数学工具箱。"
 categories = ["学习路径"]

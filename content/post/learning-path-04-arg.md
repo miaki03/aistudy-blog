@@ -1,6 +1,6 @@
 +++
 date = '2026-11-09T09:00:00+08:00'
-draft = false
+draft = true
 title = '学习路径 04 · ARG 解剖：线索链、跨媒介与自建'
 description = "三个判别特征、线索链拆解、6 个经典案例、四类跨媒介复刻与 5 环节 mini ARG 设计。"
 categories = ["学习路径"]
