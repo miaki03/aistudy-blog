@@ -1,17 +1,17 @@
 +++
 date = '2026-11-10T11:00:00+08:00'
 draft = false
-title = 'U02 · Python 最小可用：五件事够用'
+title = 'U05 · Python 最小可用：五件事够用'
 description = '脚本、变量与字符串、列表与 for、if 与函数、读文件。只学这门课真正会用到的那部分，每节都跑得起来。'
-slug = 'u02-python-min'
-chapter = 'U02'
+slug = 'u05-python-min'
+chapter = 'U05'
 stage = 0
 minutes = 140
-prereq = ['U01']
+prereq = ['U04']
 concepts = ['script', 'variable', 'string', 'list', 'function', 'dict']
 reuse = ['U21', 'U22', 'U30', 'U31', 'U41']
 skills = ['python', 'scripting']
-problems = ['U02.1-01', 'U02.2-01', 'U02.3-01', 'U02.4-01', 'U02.5-01', 'U02.6-01', 'U02.6-02', 'U02.6-03', 'U02.7-01']
+problems = ['U05.1-01', 'U05.2-01', 'U05.3-01', 'U05.4-01', 'U05.5-01', 'U05.6-01', 'U05.6-02', 'U05.6-03', 'U05.7-01']
 +++
 
 ## 读完能做什么
@@ -24,7 +24,7 @@ problems = ['U02.1-01', 'U02.2-01', 'U02.3-01', 'U02.4-01', 'U02.5-01', 'U02.6-0
 
 ## 前置
 
-U01 的终端，以及 `samples/u01-access.log`。确认 Python 在：
+U04 的终端，以及 `samples/u01-access.log`。确认 Python 在：
 
 ```console
 $ python3 --version
@@ -57,7 +57,7 @@ hello
 
 ### 机制
 
-**脚本就是一个文本文件。** `python3` 是解释器，它读这个文件、按行执行、把 `print` 的内容送到标准输出。所以 U01 讲的三根标准流在这里同样成立——`python3 hello.py > out.txt` 一样能把输出收进文件。
+**脚本就是一个文本文件。** `python3` 是解释器，它读这个文件、按行执行、把 `print` 的内容送到标准输出。所以 U04 讲的三根标准流在这里同样成立——`python3 hello.py > out.txt` 一样能把输出收进文件。
 
 三件在 Python 里必须一开始就知道的事：
 
@@ -78,7 +78,7 @@ hello
 | 交互式试代码 | 直接敲 `python3`，出现 `>>>` 后逐行输入，`exit()` 退出 |
 | 注释 | `#` 之后到行尾 |
 
-### 题 U02.1-01
+### 题 U05.1-01
 
 `print(len("你好"))` 会输出什么？
 
@@ -156,7 +156,7 @@ png
 | 编码为字节 | `s.encode()` | 默认 UTF-8 |
 | 字节解码 | `b.decode()` | |
 
-### 题 U02.2-01
+### 题 U05.2-01
 
 设 `name = "ok"`，`print(f"flag{{{name}}}")` 输出什么？
 
@@ -206,7 +206,7 @@ $ python3 lists.py
 
 **`for x in 序列`** 逐个取出元素。要同时拿到下标，用 `enumerate(序列, 起始值)`，它每轮给 `(下标, 元素)` 两样东西。起始值默认 0，写 `1` 就从 1 开始编号。
 
-**`line.split()` 不传参数**时按「任意空白」切，并且会把连续空白合成一个分隔符。这正是 U01 说 `cut` 做不到、而 `awk` 能做到的那件事。所以处理字段数不定的文本时，`split()` 比 `cut` 稳。
+**`line.split()` 不传参数**时按「任意空白」切，并且会把连续空白合成一个分隔符。这正是 U04 说 `cut` 做不到、而 `awk` 能做到的那件事。所以处理字段数不定的文本时，`split()` 比 `cut` 稳。
 
 **列表推导式 `[表达式 for 元素 in 序列 if 条件]`** 是「生成列表」的紧凑写法。上面 `[l.split()[1] for l in lines]` 等价于：
 
@@ -237,7 +237,7 @@ for l in lines:
 
 > **易错**　`sorted()` 返回新列表，`lst.sort()` 就地改且返回 `None`。写 `lst = lst.sort()` 会把列表变成 `None`。这个错误极其常见。
 
-### 题 U02.3-01
+### 题 U05.3-01
 
 `print([x * 2 for x in range(4)])` 输出什么？
 
@@ -284,7 +284,7 @@ $ python3 func.py
 23
 ```
 
-这两个数正好对上 U01 里 `cut -d' ' -f5 | sort | uniq -c` 得到的 `5 404` 和 `23 200`。
+这两个数正好对上 U04 里 `cut -d' ' -f5 | sort | uniq -c` 得到的 `5 404` 和 `23 200`。
 
 ### 机制
 
@@ -320,7 +320,7 @@ $ python3 func.py
 | 空容器判断 | `if not lst:` |
 | 类型转换 | `int(s)` / `str(n)` / `float(s)` |
 
-### 题 U02.4-01
+### 题 U05.4-01
 
 ```python
 def f(x):
@@ -402,7 +402,7 @@ $ python3 read.py
 | 去首尾空白 | `line.strip()` |
 | 去掉行尾换行 | `line.rstrip("\n")`（保留行首空格） |
 
-### 题 U02.5-01
+### 题 U05.5-01
 
 用一行 Python 数出 `samples/u01-access.log` 有多少行，只输出数字。
 
@@ -429,7 +429,7 @@ $ python3 -c "print(sum(1 for _ in open('static/samples/u01-access.log')))"
 
 ## 6 自检
 
-### U02.6-01
+### U05.6-01
 
 `print("a,b,c".split(","))` 输出什么？
 
@@ -450,7 +450,7 @@ $ python3 -c 'print("a,b,c".split(","))'
 
 </details>
 
-### U02.6-02
+### U05.6-02
 
 `print("-".join(["a", "b"]))` 输出什么？
 
@@ -471,7 +471,7 @@ a-b
 
 </details>
 
-### U02.6-03
+### U05.6-03
 
 设 `s = "  hi  "`，`print(repr(s.strip()))` 输出什么？
 
@@ -496,7 +496,7 @@ $ python3 -c 's="  hi  "; print(repr(s.strip()))'
 
 ## 7 动手
 
-### U02.7-01 用字典统计日志
+### U05.7-01 用字典统计日志
 
 写一个脚本，输出 `samples/u01-access.log` 里出现次数最多的前 3 个 IP，格式「次数 空格 IP」，每行一条。
 
@@ -540,7 +540,7 @@ $ python3 top.py
 6 192.0.2.88
 ```
 
-和 U01 里那条 `awk '{print $2}' … | sort | uniq -c | sort -rn | head -3` 的结果一致——**同一件事的两种做法**。管道更短，脚本更能改。
+和 U04 里那条 `awk '{print $2}' … | sort | uniq -c | sort -rn | head -3` 的结果一致——**同一件事的两种做法**。管道更短，脚本更能改。
 
 </details>
 

@@ -175,8 +175,8 @@
       "evidence": "必须有 7 行；S-04 那行要指出 file 被前 32 字节垃圾骗了、真实数据从偏移 32 开始（1f8b08）。可用 scripts/verify-corpus.py 的输出核对。"
     },
     {
-      "id": "U01.1-01",
-      "page": "u01-terminal",
+      "id": "U04.1-01",
+      "page": "u04-terminal",
       "skills": ["shell", "wc"],
       "difficulty": 1,
       "minutes": 3,
@@ -184,8 +184,8 @@
       "verify": "wc -l < static/samples/u01-access.log"
     },
     {
-      "id": "U01.3-01",
-      "page": "u01-terminal",
+      "id": "U04.3-01",
+      "page": "u04-terminal",
       "skills": ["shell", "sort", "uniq"],
       "difficulty": 2,
       "minutes": 5,
@@ -193,8 +193,8 @@
       "verify": "awk '{print $2}' static/samples/u01-access.log | sort | uniq -c | sort -rn | head -1 | awk '{print $1, $2}'"
     },
     {
-      "id": "U01.4-01",
-      "page": "u01-terminal",
+      "id": "U04.4-01",
+      "page": "u04-terminal",
       "skills": ["shell", "cut"],
       "difficulty": 1,
       "minutes": 3,
@@ -202,8 +202,8 @@
       "verify": "cut -d' ' -f4 static/samples/u01-access.log | head -1"
     },
     {
-      "id": "U01.5-01",
-      "page": "u01-terminal",
+      "id": "U04.5-01",
+      "page": "u04-terminal",
       "skills": ["shell", "awk"],
       "difficulty": 2,
       "minutes": 4,
@@ -211,8 +211,8 @@
       "verify": "awk '$5==404' static/samples/u01-access.log | wc -l"
     },
     {
-      "id": "U01.6-01",
-      "page": "u01-terminal",
+      "id": "U04.6-01",
+      "page": "u04-terminal",
       "skills": ["shell", "grep"],
       "difficulty": 1,
       "minutes": 3,
@@ -220,8 +220,8 @@
       "verify": "grep -c '/login ' static/samples/u01-access.log"
     },
     {
-      "id": "U01.6-02",
-      "page": "u01-terminal",
+      "id": "U04.6-02",
+      "page": "u04-terminal",
       "skills": ["shell", "uniq"],
       "difficulty": 2,
       "minutes": 4,
@@ -229,8 +229,8 @@
       "verify": "awk '{print $2}' static/samples/u01-access.log | uniq -c | wc -l"
     },
     {
-      "id": "U01.6-03",
-      "page": "u01-terminal",
+      "id": "U04.6-03",
+      "page": "u04-terminal",
       "skills": ["shell", "strings"],
       "difficulty": 2,
       "minutes": 5,
@@ -238,8 +238,8 @@
       "verify": "strings -a static/samples/S-06.pcap | grep -o 'GET [^ ]*' | cut -d' ' -f2"
     },
     {
-      "id": "U01.7-01",
-      "page": "u01-terminal",
+      "id": "U04.7-01",
+      "page": "u04-terminal",
       "skills": ["shell", "sort", "uniq", "strings"],
       "difficulty": 3,
       "minutes": 20,
@@ -248,8 +248,8 @@
       "evidence": "第 1 问必须是三行且次数为 23/5/2；第 2 问须引用 25 与 5 两个数字；第 3 问须给出 ctf.example 与 UzA2LWh0dHAtYjY0LW9y 中的正确一值并指出是 Base64。"
     },
     {
-      "id": "U02.1-01",
-      "page": "u02-python-min",
+      "id": "U05.1-01",
+      "page": "u05-python-min",
       "skills": ["python"],
       "difficulty": 1,
       "minutes": 3,
@@ -257,8 +257,8 @@
       "verify": "python3 -c 'print(len(\"你好\"))'"
     },
     {
-      "id": "U02.2-01",
-      "page": "u02-python-min",
+      "id": "U05.2-01",
+      "page": "u05-python-min",
       "skills": ["python", "fstring"],
       "difficulty": 2,
       "minutes": 3,
@@ -266,8 +266,8 @@
       "verify": "python3 -c 'name=\"ok\"; print(f\"flag{{{name}}}\")'"
     },
     {
-      "id": "U02.3-01",
-      "page": "u02-python-min",
+      "id": "U05.3-01",
+      "page": "u05-python-min",
       "skills": ["python", "list"],
       "difficulty": 1,
       "minutes": 3,
@@ -275,8 +275,8 @@
       "verify": "python3 -c 'print([x*2 for x in range(4)])'"
     },
     {
-      "id": "U02.4-01",
-      "page": "u02-python-min",
+      "id": "U05.4-01",
+      "page": "u05-python-min",
       "skills": ["python", "function"],
       "difficulty": 2,
       "minutes": 4,
@@ -284,8 +284,8 @@
       "verify": "python3 -c 'def f(x): return x*2 if x > 3 else x\nprint(f(5), f(1))'"
     },
     {
-      "id": "U02.5-01",
-      "page": "u02-python-min",
+      "id": "U05.5-01",
+      "page": "u05-python-min",
       "skills": ["python", "file-io"],
       "difficulty": 2,
       "minutes": 4,
@@ -293,8 +293,8 @@
       "verify": "python3 -c \"print(sum(1 for _ in open('static/samples/u01-access.log')))\""
     },
     {
-      "id": "U02.6-01",
-      "page": "u02-python-min",
+      "id": "U05.6-01",
+      "page": "u05-python-min",
       "skills": ["python", "string"],
       "difficulty": 1,
       "minutes": 3,
@@ -302,8 +302,8 @@
       "verify": "python3 -c 'print(\"a,b,c\".split(\",\"))'"
     },
     {
-      "id": "U02.6-02",
-      "page": "u02-python-min",
+      "id": "U05.6-02",
+      "page": "u05-python-min",
       "skills": ["python", "string"],
       "difficulty": 1,
       "minutes": 3,
@@ -311,8 +311,8 @@
       "verify": "python3 -c 'print(\"-\".join([\"a\",\"b\"]))'"
     },
     {
-      "id": "U02.6-03",
-      "page": "u02-python-min",
+      "id": "U05.6-03",
+      "page": "u05-python-min",
       "skills": ["python", "string"],
       "difficulty": 2,
       "minutes": 3,
@@ -320,8 +320,8 @@
       "verify": "python3 -c 's=\"  hi  \"; print(repr(s.strip()))'"
     },
     {
-      "id": "U02.7-01",
-      "page": "u02-python-min",
+      "id": "U05.7-01",
+      "page": "u05-python-min",
       "skills": ["python", "dict"],
       "difficulty": 3,
       "minutes": 20,
@@ -330,8 +330,8 @@
       "evidence": "三行且顺序为 203.0.113.7(10) / 198.51.100.23(8) / 192.0.2.88(6)。必须用 dict 累加，不得直接调用外部命令。"
     },
     {
-      "id": "U03.1-01",
-      "page": "u03-python-bytes",
+      "id": "U06.1-01",
+      "page": "u06-python-bytes",
       "skills": ["python", "bytes"],
       "difficulty": 1,
       "minutes": 3,
@@ -339,8 +339,8 @@
       "verify": "python3 -c 'print(len(\"你好\".encode()))'"
     },
     {
-      "id": "U03.2-01",
-      "page": "u03-python-bytes",
+      "id": "U06.2-01",
+      "page": "u06-python-bytes",
       "skills": ["python", "bytes", "encode-decode"],
       "difficulty": 2,
       "minutes": 4,
@@ -348,8 +348,8 @@
       "verify": "python3 -c \"print(len(b'\\xe4\\xbd'.decode('utf-8', errors='replace')))\""
     },
     {
-      "id": "U03.3-01",
-      "page": "u03-python-bytes",
+      "id": "U06.3-01",
+      "page": "u06-python-bytes",
       "skills": ["python", "bytes", "endianness"],
       "difficulty": 2,
       "minutes": 3,
@@ -357,8 +357,8 @@
       "verify": "python3 -c 'print((64).to_bytes(4, \"big\").hex())'"
     },
     {
-      "id": "U03.4-01",
-      "page": "u03-python-bytes",
+      "id": "U06.4-01",
+      "page": "u06-python-bytes",
       "skills": ["python", "bytes", "magic-bytes"],
       "difficulty": 2,
       "minutes": 4,
@@ -366,8 +366,8 @@
       "verify": "python3 -c \"print(open('static/samples/S-04.gz','rb').read().find(b'\\x1f\\x8b\\x08'))\""
     },
     {
-      "id": "U03.5-01",
-      "page": "u03-python-bytes",
+      "id": "U06.5-01",
+      "page": "u06-python-bytes",
       "skills": ["python", "bytes"],
       "difficulty": 1,
       "minutes": 2,
@@ -375,8 +375,8 @@
       "verify": "python3 -c \"print(b'abc' == 'abc')\""
     },
     {
-      "id": "U03.5-02",
-      "page": "u03-python-bytes",
+      "id": "U06.5-02",
+      "page": "u06-python-bytes",
       "skills": ["python", "bytes", "endianness"],
       "difficulty": 2,
       "minutes": 4,
@@ -384,8 +384,8 @@
       "verify": "python3 -c \"d=open('static/samples/S-01.png','rb').read(); print(int.from_bytes(d[16:20],'big'))\""
     },
     {
-      "id": "U03.5-03",
-      "page": "u03-python-bytes",
+      "id": "U06.5-03",
+      "page": "u06-python-bytes",
       "skills": ["python", "bytes"],
       "difficulty": 1,
       "minutes": 2,
@@ -393,8 +393,8 @@
       "verify": "python3 -c \"print(b'A'[0])\""
     },
     {
-      "id": "U03.6-01",
-      "page": "u03-python-bytes",
+      "id": "U06.6-01",
+      "page": "u06-python-bytes",
       "skills": ["python", "bytes", "gzip"],
       "difficulty": 3,
       "minutes": 20,
@@ -403,8 +403,8 @@
       "evidence": "三行且顺序正确；脚本必须用 find 动态定位偏移，出现写死的 d[32:] 即判不合格。"
     },
     {
-      "id": "U04.1-01",
-      "page": "u04-bits",
+      "id": "U07.1-01",
+      "page": "u07-bits",
       "skills": ["python", "bitwise"],
       "difficulty": 1,
       "minutes": 3,
@@ -412,8 +412,8 @@
       "verify": "python3 -c 'print(0b1100 ^ 0b1010)'"
     },
     {
-      "id": "U04.2-01",
-      "page": "u04-bits",
+      "id": "U07.2-01",
+      "page": "u07-bits",
       "skills": ["python", "bitwise", "mask"],
       "difficulty": 2,
       "minutes": 3,
@@ -421,8 +421,8 @@
       "verify": "python3 -c 'print((0b10110110 >> 3) & 1)'"
     },
     {
-      "id": "U04.3-01",
-      "page": "u04-bits",
+      "id": "U07.3-01",
+      "page": "u07-bits",
       "skills": ["python", "bitwise", "mask"],
       "difficulty": 2,
       "minutes": 4,
@@ -430,8 +430,8 @@
       "verify": "python3 -c 'n=0b1010; print(bin(n & ~(1<<1)))'"
     },
     {
-      "id": "U04.4-01",
-      "page": "u04-bits",
+      "id": "U07.4-01",
+      "page": "u07-bits",
       "skills": ["python", "bit-plane"],
       "difficulty": 2,
       "minutes": 3,
@@ -439,8 +439,8 @@
       "verify": "python3 -c \"print(chr(int('01010011',2)))\""
     },
     {
-      "id": "U04.5-01",
-      "page": "u04-bits",
+      "id": "U07.5-01",
+      "page": "u07-bits",
       "skills": ["python", "mask"],
       "difficulty": 1,
       "minutes": 2,
@@ -448,8 +448,8 @@
       "verify": "python3 -c 'print(0xE4 & 0x0F)'"
     },
     {
-      "id": "U04.5-02",
-      "page": "u04-bits",
+      "id": "U07.5-02",
+      "page": "u07-bits",
       "skills": ["python", "mask"],
       "difficulty": 1,
       "minutes": 2,
@@ -457,8 +457,8 @@
       "verify": "python3 -c 'print(hex((1 << 16) - 1))'"
     },
     {
-      "id": "U04.5-03",
-      "page": "u04-bits",
+      "id": "U07.5-03",
+      "page": "u07-bits",
       "skills": ["python", "bitwise"],
       "difficulty": 1,
       "minutes": 2,
@@ -466,8 +466,8 @@
       "verify": "python3 -c 'print(~0)'"
     },
     {
-      "id": "U04.6-01",
-      "page": "u04-bits",
+      "id": "U07.6-01",
+      "page": "u07-bits",
       "skills": ["python", "bit-plane", "lsb"],
       "difficulty": 3,
       "minutes": 25,

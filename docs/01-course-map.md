@@ -7,17 +7,18 @@
 | 章 | 页面 | 网址 | 规模 | 题 | 时长 |
 | --- | --- | --- | --- | --- | --- |
 | U00 | `content/skill/u00-data-in-machine.md` | `/s/u00-data-in-machine/` | 526 行 / 11737 字 | 8 | 80 |
-| U01 | `content/skill/u01-terminal.md` | `/s/u01-terminal/` | 599 行 / 12520 字 | 8 | 140 |
-| U02 | `content/skill/u02-python-min.md` | `/s/u02-python-min/` | 576 行 / 12197 字 | 9 | 140 |
-| U03 | `content/skill/u03-python-bytes.md` | `/s/u03-python-bytes/` | 527 行 / 11328 字 | 8 | 120 |
-| U04 | `content/skill/u04-bits.md` | `/s/u04-bits/` | 526 行 / 10300 字 | 8 | 90 |
+| U04 | `content/skill/u04-terminal.md` | `/s/u04-terminal/` | 599 行 | 8 | 140 |
+| U05 | `content/skill/u05-python-min.md` | `/s/u05-python-min/` | 576 行 | 9 | 140 |
+| U06 | `content/skill/u06-python-bytes.md` | `/s/u06-python-bytes/` | 527 行 | 8 | 120 |
+| U07 | `content/skill/u07-bits.md` | `/s/u07-bits/` | 526 行 | 8 | 90 |
 | U10 | `content/skill/base64-family.md` | `/s/base64-family/` | 467 行 / 9298 字 | 5 | 70 |
 | U12 | `content/skill/file-magic.md` | `/s/file-magic/` | 579 行 / 13078 字 | 9 | 110 |
 
-七篇共 3800 行、70,458 字、55 道题（其中 47 道机器可验，`check.py` 全部实跑通过）。
+七篇共 3800 行、55 道题。
 
-**Part 0 已完成（5/5 章）**，评审记录见 `docs/reviews/P0.md`。
+**Part 0 待重构**：按新大纲拆为 8 章（U00–U07）。当前 U04–U07 已就位，U00 待重写为「在终端里看见字节」，U01–U03（十六进制 / ASCII / UTF-8）待新建。
 **Part 1 完成 2/3 章**：U10、U12 已上线，差 U11 与项目页 P1。
+**旧版 8 篇已转草稿下线**（W 系列里程碑与新结构冲突）。
 
 ## 草稿中（draft = true）
 

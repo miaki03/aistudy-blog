@@ -1,17 +1,17 @@
 +++
 date = '2026-11-10T10:00:00+08:00'
 draft = false
-title = 'U01 · 终端：把工具接成一条流水线'
+title = 'U04 · 终端：把工具接成一条流水线'
 description = '路径、管道、重定向、sort/uniq/wc、cut/tr/sed，最后把它们拼成一条命令。'
-slug = 'u01-terminal'
-chapter = 'U01'
+slug = 'u04-terminal'
+chapter = 'U04'
 stage = 0
 minutes = 140
 prereq = ['U00']
 concepts = ['path', 'pipe', 'redirect', 'field']
 reuse = ['U10', 'U12', 'U20', 'U40', 'U41', 'U60']
 skills = ['shell', 'pipeline', 'text-processing']
-problems = ['U01.1-01', 'U01.3-01', 'U01.4-01', 'U01.5-01', 'U01.6-01', 'U01.6-02', 'U01.6-03', 'U01.7-01']
+problems = ['U04.1-01', 'U04.3-01', 'U04.4-01', 'U04.5-01', 'U04.6-01', 'U04.6-02', 'U04.6-03', 'U04.7-01']
 +++
 
 ## 读完能做什么
@@ -106,7 +106,7 @@ $ wc -l samples/u01-access.log
 | `wc -l < 文件` | 行数（纯数字） |
 | `wc -c 文件` | 字节数 |
 
-### 题 U01.1-01
+### 题 U04.1-01
 
 `samples/u01-access.log` 有多少行？只输出数字。
 
@@ -277,7 +277,7 @@ $ cut -d' ' -f5 samples/u01-access.log | sort | uniq -c | sort -rn
 | `uniq -d` | 只留出现 ≥2 次的 |
 | `uniq -u` | 只留出现 1 次的 |
 
-### 题 U01.3-01
+### 题 U04.3-01
 
 写出出现次数**最多**的那个 IP 及其次数，格式为「次数 空格 IP」，例如 `7 10.0.0.1`。
 
@@ -358,7 +358,7 @@ c
 | `sed 's/旧/新/g'` | 替换全部 |
 | `sed '/关键词/d'` | 删掉含关键词的行 |
 
-### 题 U01.4-01
+### 题 U04.4-01
 
 用 `cut` 取出这份日志的**第 4 段**（路径），只要第一行。
 
@@ -445,7 +445,7 @@ $ cut -d' ' -f5 samples/u01-access.log | sort | uniq -c
 
 最后一行是本章给后续埋的钩子：`strings` 能把二进制文件里的可打印片段全列出来，抓包文件里没加密的 HTTP 内容就是靠它快速看到的。
 
-### 题 U01.5-01
+### 题 U04.5-01
 
 状态码 `404` 的请求有多少条？只输出数字。
 
@@ -472,7 +472,7 @@ $ awk '$5==404' samples/u01-access.log | wc -l
 
 ## 6 自检
 
-### U01.6-01
+### U04.6-01
 
 路径 `/login` 在这份日志里出现多少次？
 
@@ -493,7 +493,7 @@ $ grep -c '/login ' samples/u01-access.log
 
 </details>
 
-### U01.6-02
+### U04.6-02
 
 不加 `sort`、直接对 IP 列跑 `uniq -c`，输出多少行？
 
@@ -514,7 +514,7 @@ $ awk '{print $2}' samples/u01-access.log | uniq -c | wc -l
 
 </details>
 
-### U01.6-03
+### U04.6-03
 
 用 `strings` 从 `samples/S-06.pcap` 里找出被请求的 URL（不含 `GET` 和尾部空格）。
 
@@ -539,7 +539,7 @@ $ strings -a samples/S-06.pcap | grep -o 'GET [^ ]*' | cut -d' ' -f2
 
 ## 7 动手
 
-### U01.7-01 一份日志的三问
+### U04.7-01 一份日志的三问
 
 1. 每个状态码各多少条，按次数降序（三行，形如「次数 状态码」）。
 2. 说明为什么 `uniq` 必须先 `sort`；用本章的 25 / 5 两个数字支持你的说法。
