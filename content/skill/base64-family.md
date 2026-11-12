@@ -1,7 +1,7 @@
 +++
 date = '2026-11-09T10:00:00+08:00'
 draft = false
-title = 'Base64 家族：原理、手算与排错'
+title = '第 9 章 · Base64 家族：原理、手算与排错'
 description = "从位与字节讲起，逐步推导 Base64 的分组规则、字母表映射、padding 与长度公式；给出编码与解码两个方向的手算示例，以及一个能实际跑出结论的识别脚本。"
 slug = "base64-family"
 chapter = "U10"

@@ -1,7 +1,7 @@
 +++
 date = '2026-11-10T10:00:00+08:00'
 draft = false
-title = 'U04 · 终端：把工具接成一条流水线'
+title = '第 5 章 · 终端：把工具接成一条流水线'
 description = '路径、管道、重定向、sort/uniq/wc、cut/tr/sed，最后把它们拼成一条命令。'
 slug = 'u04-terminal'
 chapter = 'U04'
@@ -24,7 +24,7 @@ problems = ['U04.1-01', 'U04.3-01', 'U04.4-01', 'U04.5-01', 'U04.6-01', 'U04.6-0
 
 ## 前置
 
-需要 U00 里那个终端，以及 `samples/` 目录。若你还没下载样本：
+需要 第 1 章 里那个终端，以及 `samples/` 目录。若你还没下载样本：
 
 ```console
 $ mkdir -p samples && cd samples
@@ -81,7 +81,7 @@ $ wc -l < samples/u01-access.log
   权限    链接数 属主   属组  字节数   修改时间
 ```
 
-**第三列之后那个数字是字节数**，不是行数。1681 字节、30 行 —— 这两个数不一样，跟 U00 讲的「字节数 ≠ 字符数」是同一件事的不同面。
+**第三列之后那个数字是字节数**，不是行数。1681 字节、30 行 —— 这两个数不一样，跟 第 1 章 讲的「字节数 ≠ 字符数」是同一件事的不同面。
 
 > **易错**　不要把 `ls` 和 `ls -l` 搞混。`ls` 只给名字，`ls -l` 才给字节数和权限。要判断一个文件是不是空的，看第五列，不要靠眼睛。
 
@@ -531,7 +531,7 @@ $ strings -a samples/S-06.pcap | grep -o 'GET [^ ]*' | cut -d' ' -f2
 /files/%E4%BD%A0%E5%A5%BD.txt
 ```
 
-`grep -o` 只输出匹配到的那一段（不是整行）。`[^ ]*` 表示「一串非空格字符」，所以正好截到 URL 结尾。`%E4%BD%A0%E5%A5%BD` 是 URL 编码，U11 会讲怎么还原。
+`grep -o` 只输出匹配到的那一段（不是整行）。`[^ ]*` 表示「一串非空格字符」，所以正好截到 URL 结尾。`%E4%BD%A0%E5%A5%BD` 是 URL 编码，第 10 章 会讲怎么还原。
 
 </details>
 
@@ -565,7 +565,7 @@ $ cut -d' ' -f5 samples/u01-access.log | sort | uniq -c | sort -rn
 
 第 2 问：`uniq` 只比较相邻两行。日志按时间排序，同一 IP 分散，所以不排序时有 25 组；排序后相同值相邻，只剩 5 组。**排序是把「相同的东西放到一起」，`uniq` 才能看见它们。**
 
-第 3 问：`strings -a samples/S-06.pcap` 的第 2 行是 `Host: ctf.example`，所以域名是 `ctf.example`。Cookie 行是 `Cookie: sid=UzA2LWh0dHAtYjY0LW9r`，去掉 `sid=` 后是 `UzA2LWh0dHAtYjY0LW9r`——只含字母数字，没有 `+/`，长度 20 是 4 的倍数，**这是 Base64**。U10 会讲怎么解。
+第 3 问：`strings -a samples/S-06.pcap` 的第 2 行是 `Host: ctf.example`，所以域名是 `ctf.example`。Cookie 行是 `Cookie: sid=UzA2LWh0dHAtYjY0LW9r`，去掉 `sid=` 后是 `UzA2LWh0dHAtYjY0LW9r`——只含字母数字，没有 `+/`，长度 20 是 4 的倍数，**这是 Base64**。第 9 章 会讲怎么解。
 
 </details>
 
@@ -596,4 +596,4 @@ $ cut -d' ' -f5 samples/u01-access.log | sort | uniq -c | sort -rn
 ## 延伸
 
 - `man 1 sort`、`man 1 uniq`：完整参数。看 `man` 里「BUGS」一节往往比正文有用。
-- `awk` 是这份流水线里的第 5 个工具，本章只用了 `$N` 和条件。等到需要按多条件筛选（U41 过滤抓包）时再单独讲。
+- `awk` 是这份流水线里的第 5 个工具，本章只用了 `$N` 和条件。等到需要按多条件筛选（第 22 章 过滤抓包）时再单独讲。
