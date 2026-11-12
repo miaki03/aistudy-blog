@@ -651,12 +651,14 @@
       "page": "u00-see-bytes",
       "skills": [
         "terminal",
-        "wc"
+        "cd",
+        "ls",
+        "pwd"
       ],
       "difficulty": 1,
-      "minutes": 3,
-      "answer": "1681",
-      "verify": "wc -c < static/samples/u01-access.log"
+      "minutes": 4,
+      "answer": "9",
+      "verify": "ls static/samples | wc -l"
     },
     {
       "id": "U00.2-01",
