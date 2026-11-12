@@ -1,6 +1,6 @@
 +++
 date = '2026-11-10T15:00:00+08:00'
-draft = true
+draft = false
 title = 'U00 · 在终端里看见字节'
 description = '用 xxd 列出任意文件的前 16 个字节，并说出输出三列各是什么'
 slug = 'u00-see-bytes'
