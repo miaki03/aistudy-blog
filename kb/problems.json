@@ -46,36 +46,6 @@
       "verify": "printf '666c61677b6865787d' | xxd -r -p"
     },
     {
-      "id": "F-01",
-      "page": "file-magic",
-      "skills": ["magic-bytes"],
-      "difficulty": 1,
-      "minutes": 2,
-      "answer": "PNG",
-      "manual": true,
-      "evidence": "89 50 4E 47 = .PNG（ASCII 可读）；完整 8 字节 89 50 4E 47 0D 0A 1A 0A 是 PNG 规范定义的签名"
-    },
-    {
-      "id": "F-02",
-      "page": "file-magic",
-      "skills": ["magic-bytes"],
-      "difficulty": 1,
-      "minutes": 2,
-      "answer": "ZIP",
-      "manual": true,
-      "evidence": "50 4B 03 04 = PK\\x03\\x04，ZIP 本地文件头；jar/docx/apk/epub 同为 zip 容器"
-    },
-    {
-      "id": "F-03",
-      "page": "file-magic",
-      "skills": ["append-data", "file-command"],
-      "difficulty": 3,
-      "minutes": 10,
-      "answer": "flag{appended_after_eof}",
-      "manual": true,
-      "evidence": "实测：1x1 PNG 67 字节 + zip 后共 205 字节，file 仍报 PNG；从偏移 67 切出的是合法 zip，内含该字符串"
-    },
-    {
       "id": "P1-01",
       "page": "p1-encoding-recon",
       "skills": ["base64"],
@@ -504,6 +474,88 @@
       "answer": "S01-LSB-OK",
       "manual": true,
       "evidence": "输出前 10 字符必须是 S01-LSB-OK；脚本须自己解 PNG 的 IDAT 并处理每行 1 字节过滤器前缀。可用 scripts/verify-corpus.py 的 S-01 断言核对。"
+    },
+    {
+      "id": "U12.1-01",
+      "page": "file-magic",
+      "skills": ["magic-bytes", "file-command"],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "data",
+      "verify": "python3 -c \"open('/tmp/u12short.png','wb').write(b'\\x89PNG\\r\\n\\x1a\\n')\" && file -b /tmp/u12short.png"
+    },
+    {
+      "id": "U12.2-01",
+      "page": "file-magic",
+      "skills": ["file-command", "magic-bytes"],
+      "difficulty": 2,
+      "minutes": 3,
+      "answer": "OpenPGP Public Key",
+      "verify": "file -b static/samples/S-04.gz"
+    },
+    {
+      "id": "U12.3-01",
+      "page": "file-magic",
+      "skills": ["zip", "pseudo-encryption"],
+      "difficulty": 2,
+      "minutes": 3,
+      "answer": "1",
+      "verify": "python3 -c \"import zipfile; print(zipfile.ZipFile('static/samples/S-03.zip').infolist()[0].flag_bits)\""
+    },
+    {
+      "id": "U12.3-02",
+      "page": "file-magic",
+      "skills": ["png", "endianness"],
+      "difficulty": 2,
+      "minutes": 3,
+      "answer": "32",
+      "verify": "python3 -c \"import struct; print(struct.unpack('>II', open('static/samples/S-02.png','rb').read()[16:24])[1])\""
+    },
+    {
+      "id": "U12.4-01",
+      "page": "file-magic",
+      "skills": ["append-data", "zip"],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "27",
+      "verify": "python3 -c \"d=open('static/samples/S-03.zip','rb').read(); print(len(d)-(d.rfind(b'PK\\x05\\x06')+22))\""
+    },
+    {
+      "id": "U12.5-01",
+      "page": "file-magic",
+      "skills": ["magic-bytes", "hex"],
+      "difficulty": 1,
+      "minutes": 2,
+      "answer": "504b0304",
+      "verify": "python3 -c \"print(b'PK\\x03\\x04'.hex())\""
+    },
+    {
+      "id": "U12.5-02",
+      "page": "file-magic",
+      "skills": ["zip", "pseudo-encryption"],
+      "difficulty": 2,
+      "minutes": 3,
+      "answer": "RuntimeError",
+      "verify": "python3 -c \"import zipfile\ntry:\n zipfile.ZipFile('static/samples/S-03.zip').read('readme.txt')\nexcept Exception as e:\n print(type(e).__name__)\""
+    },
+    {
+      "id": "U12.5-03",
+      "page": "file-magic",
+      "skills": ["zip"],
+      "difficulty": 1,
+      "minutes": 2,
+      "answer": "readme.txt",
+      "verify": "python3 -c \"import zipfile; print(zipfile.ZipFile('static/samples/S-03.zip').infolist()[0].filename)\""
+    },
+    {
+      "id": "U12.6-01",
+      "page": "file-magic",
+      "skills": ["file-command", "magic-bytes", "append-data", "pseudo-encryption"],
+      "difficulty": 3,
+      "minutes": 25,
+      "answer": "四段结论：S-01 正常 / S-02 IHDR CRC 不符 / S-03 伪加密+尾部 27 字节 / S-04 前缀 32 字节垃圾",
+      "manual": true,
+      "evidence": "S-01 必须判为正常（CRC 相符、IEND 后无剩余）；S-02 须指出 CRC 0x250be689 ≠ 0x2dffe9d3 且实际高 64；S-03 须同时指出 flag_bits=0x1 与 EOCD 后 27 字节；S-04 须指出真实数据从偏移 32 开始。可用 scripts/verify-corpus.py 交叉核对。"
     }
   ]
 }

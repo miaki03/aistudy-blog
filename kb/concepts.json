@@ -26,6 +26,8 @@
     "endianness": { "zh": "字节序", "en": "endianness", "first": "U03" },
     "bitwise": { "zh": "位运算", "en": "bitwise operation", "first": "U04" },
     "mask": { "zh": "掩码", "en": "mask", "first": "U04" },
-    "bit-plane": { "zh": "位平面", "en": "bit plane", "first": "U04" }
+    "bit-plane": { "zh": "位平面", "en": "bit plane", "first": "U04" },
+    "pseudo-encryption": { "zh": "伪加密", "en": "pseudo-encryption", "first": "U12" },
+    "appended-data": { "zh": "附加数据", "en": "appended data", "first": "U12" }
   }
 }
