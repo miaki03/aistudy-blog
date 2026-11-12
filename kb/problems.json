@@ -657,8 +657,8 @@
       ],
       "difficulty": 1,
       "minutes": 4,
-      "answer": "9",
-      "verify": "ls static/samples | wc -l"
+      "answer": "S-01.png",
+      "verify": "ls static/samples | head -1"
     },
     {
       "id": "U00.2-01",
