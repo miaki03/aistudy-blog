@@ -16,6 +16,16 @@
       "en": "printable character",
       "first": "U00"
     },
+    "bit": {
+      "zh": "位",
+      "en": "bit",
+      "first": "U01"
+    },
+    "hex": {
+      "zh": "十六进制",
+      "en": "hexadecimal",
+      "first": "U01"
+    },
     "magic-number": {
       "zh": "魔数",
       "en": "magic number",
@@ -115,6 +125,11 @@
       "zh": "附加数据",
       "en": "appended data",
       "first": "U12"
+    },
+    "bit": {
+      "zh": "位",
+      "en": "bit",
+      "first": "U01"
     }
   }
 }

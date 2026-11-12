@@ -682,6 +682,41 @@
       "minutes": 4,
       "answer": "PNG image data, 64 x 64, 8-bit/color RGB, non-interlaced",
       "verify": "cp static/samples/S-01.png /tmp/u00a.txt && file -b /tmp/u00a.txt"
+    },
+    {
+      "id": "U01.1-01",
+      "page": "u01-hex",
+      "skills": [
+        "hex",
+        "printf"
+      ],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "c8",
+      "verify": "printf '%x\\n' 200"
+    },
+    {
+      "id": "U01.2-01",
+      "page": "u01-hex",
+      "skills": [
+        "hex",
+        "printf"
+      ],
+      "difficulty": 1,
+      "minutes": 3,
+      "answer": "65",
+      "verify": "printf '%d\\n' 0x41"
+    },
+    {
+      "id": "U01.3-01",
+      "page": "u01-hex",
+      "skills": [
+        "hex"
+      ],
+      "difficulty": 2,
+      "minutes": 4,
+      "answer": "ff",
+      "verify": "printf '%x\\n' 255"
     }
   ]
 }
